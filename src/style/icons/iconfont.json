@@ -1,0 +1,100 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "401192",
+      "name": "twitter",
+      "font_class": "twitter",
+      "unicode": "e89d",
+      "unicode_decimal": 59549
+    },
+    {
+      "icon_id": "970752",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "1311741",
+      "name": "arrow-up",
+      "font_class": "arrow-up",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "1381385",
+      "name": "github",
+      "font_class": "github",
+      "unicode": "e628",
+      "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "1444059",
+      "name": "bookmark",
+      "font_class": "bookmark",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "1898963",
+      "name": "qq",
+      "font_class": "qq",
+      "unicode": "e6fd",
+      "unicode_decimal": 59133
+    },
+    {
+      "icon_id": "5127269",
+      "name": "copy",
+      "font_class": "copy",
+      "unicode": "e765",
+      "unicode_decimal": 59237
+    },
+    {
+      "icon_id": "6353293",
+      "name": "share",
+      "font_class": "share",
+      "unicode": "e86e",
+      "unicode_decimal": 59502
+    },
+    {
+      "icon_id": "6626177",
+      "name": "Menu",
+      "font_class": "Menu",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "6626250",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "6940856",
+      "name": "weibo",
+      "font_class": "weibo",
+      "unicode": "e660",
+      "unicode_decimal": 58976
+    },
+    {
+      "icon_id": "11903715",
+      "name": "more",
+      "font_class": "more",
+      "unicode": "e65d",
+      "unicode_decimal": 58973
+    },
+    {
+      "icon_id": "12669151",
+      "name": "copy",
+      "font_class": "copy1",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    }
+  ]
+}

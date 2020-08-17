@@ -1,0 +1,30 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1262076",
+      "name": "refresh",
+      "font_class": "refresh",
+      "unicode": "e6e9",
+      "unicode_decimal": 59113
+    },
+    {
+      "icon_id": "5633967",
+      "name": "copy",
+      "font_class": "copy",
+      "unicode": "ef86",
+      "unicode_decimal": 61318
+    },
+    {
+      "icon_id": "7141599",
+      "name": "share",
+      "font_class": "share",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    }
+  ]
+}

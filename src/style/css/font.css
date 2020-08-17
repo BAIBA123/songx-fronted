@@ -1,0 +1,33 @@
+@font-face {  
+  font-family: 'din';   
+  src: url('../font/din.woff2');
+  font-weight: normal;  
+  font-style: normal;  
+}
+
+@font-face {  
+  font-family: 'nav';   
+  src: url('../font/nav.woff');
+  font-weight: normal;  
+  font-style: normal;  
+}
+
+@font-face {  
+  font-family: 'kxzd';   
+  src: url('../font/kxzd.woff');
+  font-weight: normal;  
+  font-style: normal;  
+}
+
+
+.font-din {
+  font-family: din;
+}
+
+.font-nav {
+  font-family: nav;
+}
+
+.font-kxzd {
+  font-family: kxzd;
+}

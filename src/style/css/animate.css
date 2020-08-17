@@ -1,0 +1,122 @@
+/* mask 动画 */
+.drawer-enter.drawer-mask {
+  opacity: 0;
+}
+.drawer-enter-active.drawer-mask {
+  opacity: 1;
+  transition: all .3s ease-in;
+}
+.drawer-exit.drawer-mask {
+  opacity: 1;
+}
+.drawer-exit-active.drawer-mask {
+  opacity: 0;
+  transition: all .3s ease-out;
+}
+
+/* 内容动画 */
+.drawer-enter .drawer {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.drawer-enter-active .drawer {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all .3s ease-in;
+}
+.drawer-exit .drawer {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.drawer-exit-active .drawer {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all .3s ease-out;
+}
+
+
+/* top组件 */
+.top-enter-active {
+  transform: translateY(0);
+  animation: rubberBandIn 0.8s linear;
+}
+
+.top-exit-active {
+  transform: translateY(100px);
+  animation: rubberBandOut 0.8s linear;
+}
+
+@keyframes rubberBandIn {
+  from {
+    transform: scale3d(1, 1, 1) translateY(100px);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1) translateY(0);
+  }
+}
+
+@keyframes rubberBandOut {
+  from {
+    transform: scale3d(1, 1, 1) translateY(0);
+  }
+
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1) translateY(100px);
+  }
+}
+
+/* 笔记加载 */
+.noteActive {
+  transition: all .3s linear;
+  transform: rotate(360deg);
+}
+
+
+.link-box:hover {
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-round:hover {
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+}
