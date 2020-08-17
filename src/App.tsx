@@ -1,14 +1,14 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Index from "./pages/index/Index";
-import Read from "./pages/read/Index";
-import PostList from "./pages/post/Index";
-import PostDetail from "./pages/post/Detail";
-import NotFound from "./pages/others/NotFound";
-import Layout from "./components/layout/Index";
-import ScrollToTop from "./components/ScrollTop"
+import React from 'react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Index from './pages/index/Index'
+import Read from './pages/read/Index'
+import PostList from './pages/post/Index'
+import PostDetail from './pages/post/Detail'
+import NotFound from './pages/others/NotFound'
+import Layout from './components/layout/Index'
+import ScrollToTop from './components/ScrollTop'
 
-function App() {
+function App () {
   return (
     <Router>
       <ScrollToTop>
@@ -23,7 +23,7 @@ function App() {
         </Layout>
       </ScrollToTop>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

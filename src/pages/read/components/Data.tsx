@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from "react";
-import { Progress } from 'antd';
+import React, { useState, useEffect } from 'react'
+import { Progress } from 'antd'
 
-export default function Data (){
+export default function Data () {
   return (
     <div className="mb-12">
       <div className="flex">

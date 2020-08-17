@@ -1,8 +1,7 @@
 import React from 'react'
-import { Tooltip } from 'antd';
+import { Tooltip } from 'antd'
 
-export default () =>  {
-  
+export default function Footer () {
   return (
     <div className="border-t py-4">
       <div className="flex flex-wrap items-center px-4 md:px-8 max-w-1200px mx-auto pt-8">

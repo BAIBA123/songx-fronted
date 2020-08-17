@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import LinkSkele from "../skeleton/Link";
-import http from "../../../utils/http/index";
+import React, { useState, useEffect } from 'react'
+import LinkSkele from '../skeleton/Link'
+import http from '../../../utils/http/index'
 
 interface link {
   _id: number;
@@ -9,21 +9,21 @@ interface link {
   link: string;
 }
 
-export default () => {
-  const [links, setLinks] = useState([]);
-  const [loading, setLoading] = useState(true);
+export default function Link () {
+  const [links, setLinks] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const getLinks = async () => {
-    const res: any = await http.get("/rest/link");
-    setLinks(res);
-    setLoading(false);
-  };
+    const res: any = await http.get('/rest/link')
+    setLinks(res)
+    setLoading(false)
+  }
 
   useEffect(() => {
-    getLinks();
-  }, []);
+    getLinks()
+  }, [])
 
-  const skeleton: React.ReactElement = <LinkSkele></LinkSkele>;
+  const skeleton: React.ReactElement = <LinkSkele></LinkSkele>
 
   const html: React.ReactElement = (
     <div className="flex flex-wrap">
@@ -45,10 +45,10 @@ export default () => {
               <p className="text-sm lg:text-xs">{item.name}</p>
             </div>
           </a>
-        );
+        )
       })}
     </div>
-  );
+  )
 
-  return <div>{loading ? skeleton : html}</div>;
+  return <div>{loading ? skeleton : html}</div>
 }

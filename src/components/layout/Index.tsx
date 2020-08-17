@@ -7,10 +7,9 @@ interface LayoutProps {
   children: React.ReactNode
 }
 
-export default function Layout(props: LayoutProps) {
-
+export default function Layout (props: LayoutProps) {
   const { children } = props
-  
+
   return (
     <div className="text-base">
       <Header />

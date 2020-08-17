@@ -1,11 +1,11 @@
-import React from "react";
-import { Popover } from "antd";
-import emojis from "../../../../utils/configs/emoji";
+import React from 'react'
+import { Popover } from 'antd'
+import emojis from '../../../../utils/configs/emoji'
 
-export default function Comment() {
+export default function Comment () {
   const emojiClick = (name: string) => {
-    console.log(name);
-  };
+    console.log(name)
+  }
 
   const content = emojis.map((item) => {
     return (
@@ -16,8 +16,8 @@ export default function Comment() {
         onClick={() => emojiClick(item.name)}
         alt=""
       />
-    );
-  });
+    )
+  })
 
   return (
     <div className="bg-gray-100 border rounded-lg p-4">
@@ -46,5 +46,5 @@ export default function Comment() {
         </button>
       </div>
     </div>
-  );
+  )
 }

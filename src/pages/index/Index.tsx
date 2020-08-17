@@ -1,26 +1,26 @@
-import React, { useState, useEffect } from "react";
-import http from "../../utils/http/index";
-import Post from "./components/Post";
-import MyNote from "./components/Note";
-import MyLink from "./components/Link";
+import React, { useState, useEffect } from 'react'
+import http from '../../utils/http/index'
+import Post from './components/Post'
+import MyNote from './components/Note'
+import MyLink from './components/Link'
 // import MyProject from "./components/Project";
-import PartTitle from "./components/PartTitle";
+import PartTitle from './components/PartTitle'
 
-export default () => {
-  const [loading, setLoading] = useState(true);
-  const [updates, setUpdates] = useState([]);
-  const [mainPic, setMainPic] = useState("");
+export default function Index () {
+  const [loading, setLoading] = useState(true)
+  const [updates, setUpdates] = useState([])
+  const [mainPic, setMainPic] = useState('')
 
   useEffect(() => {
     const getInit = async () => {
-      const res: any = await http.get("/api/home");
+      const res: any = await http.get('/api/home')
 
-      setLoading(false);
-      setMainPic(res.mainPic[0].pic);
-      setUpdates(res.updates);
-    };
-    getInit();
-  }, []);
+      setLoading(false)
+      setMainPic(res.mainPic[0].pic)
+      setUpdates(res.updates)
+    }
+    getInit()
+  }, [])
 
   return (
     <div className="home-box">
@@ -33,13 +33,13 @@ export default () => {
         <div className="px-4 md:px-8 max-w-1200px mx-auto">
           {/* 最近 */}
           <div className="mb-10">
-            <PartTitle title={{ en: "UPDATES", zh: "最新随笔" }}></PartTitle>
+            <PartTitle title={{ en: 'UPDATES', zh: '最新随笔' }}></PartTitle>
             <Post updates={updates} loading={loading}></Post>
           </div>
 
           {/* 笔记 */}
           <div className="mb-10">
-            <PartTitle title={{ en: "NOTES", zh: "阅读笔记" }}></PartTitle>
+            <PartTitle title={{ en: 'NOTES', zh: '阅读笔记' }}></PartTitle>
             <MyNote></MyNote>
           </div>
 
@@ -51,11 +51,11 @@ export default () => {
 
           {/* 友链 */}
           <div className="mb-10">
-            <PartTitle title={{ en: "LINKS", zh: "友情链接" }}></PartTitle>
+            <PartTitle title={{ en: 'LINKS', zh: '友情链接' }}></PartTitle>
             <MyLink></MyLink>
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }

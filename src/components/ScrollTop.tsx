@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react'
-import { withRouter } from "react-router-dom";
+import React, { useEffect } from 'react'
+import { withRouter } from 'react-router-dom'
 
 const ScrollToTop = (props: any) => {
   useEffect(() => {
@@ -8,4 +8,4 @@ const ScrollToTop = (props: any) => {
   return props.children
 }
 
-export default withRouter(ScrollToTop);
+export default withRouter(ScrollToTop)

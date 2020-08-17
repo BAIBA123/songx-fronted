@@ -1,5 +1,5 @@
-import React from "react";
-import ProjectSkele from "../skeleton/Project";
+import React from 'react'
+import ProjectSkele from '../skeleton/Project'
 
 interface ProjectProps {
   loading: boolean;
@@ -11,8 +11,8 @@ interface ProjectProps {
   }[];
 }
 
-export default (props: ProjectProps) => {
-  const { projects, loading } = props;
+export default function Project (props: ProjectProps) {
+  const { projects, loading } = props
 
   const skeleton: React.ReactElement = <ProjectSkele></ProjectSkele>
 
@@ -31,10 +31,10 @@ export default (props: ProjectProps) => {
             <p className="text-base">{item.name}</p>
             <p className="text-xs text-gray-600">{item.link}</p>
           </div>
-        );
+        )
       })}
     </div>
-  );
+  )
 
-  return <div>{loading ? skeleton : html}</div>;
+  return <div>{loading ? skeleton : html}</div>
 }

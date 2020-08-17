@@ -1,7 +1,6 @@
-import React from "react";
+import React from 'react'
 
-export default function Note() {
-  
+export default function Note () {
   return (
     <div>
       <div className="md:hidden">
@@ -16,7 +15,7 @@ export default function Note() {
         </div>
       </div>
 
-      <div className="hidden md:flex" style={{height: '178px'}}>
+      <div className="hidden md:flex" style={{ height: '178px' }}>
         <div className="sk w-32 h-40 mr-10"></div>
         <div className="w-full">
           <p className="sk h-4 w-1/6 mb-2"></p>

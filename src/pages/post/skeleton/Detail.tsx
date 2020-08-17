@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-export default function Detail() {
+export default function Detail () {
   return (
     <div className="flex">
       <div className="left max-w-800px w-full">
@@ -26,5 +26,5 @@ export default function Detail() {
 
       <div className="right"></div>
     </div>
-  );
+  )
 }

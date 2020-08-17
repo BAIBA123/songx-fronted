@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 
 import moment from 'moment'
-import {message} from 'antd'
-import "../style/css/animate.css";
-import Copy from "copy-to-clipboard";
-import http from "../utils/http/index";
-import { CSSTransition } from "react-transition-group";
+import { message } from 'antd'
+import '../style/css/animate.css'
+import Copy from 'copy-to-clipboard'
+import http from '../utils/http/index'
+import { CSSTransition } from 'react-transition-group'
 
 interface IBook {
   _id: string;
@@ -20,32 +20,32 @@ interface drawerProps {
   toggleDrawer: Function;
 }
 
-export default (props: drawerProps) => {
-  const { showDrawer, bookInfo } = props;
-  const [noteList, setNoteList] = useState([{ date: null, content: "" }]);
+export default function Drawer (props: drawerProps) {
+  const { showDrawer, bookInfo } = props
+  const [noteList, setNoteList] = useState([{ date: null, content: '' }])
 
   const toggleDrawer = (e: any) => {
-    e.target.id === "drawerMask" && props.toggleDrawer(false);
-  };
+    e.target.id === 'drawerMask' && props.toggleDrawer(false)
+  }
 
   const getNoteList = async (_id: string) => {
-    const res: any = await http.get("/rest/note", {
-      params: { book_id: _id },
-    });
-    setNoteList(res);
-  };
+    const res: any = await http.get('/rest/note', {
+      params: { book_id: _id }
+    })
+    setNoteList(res)
+  }
 
   const copy = (content: string) => {
-    Copy(content);
+    Copy(content)
     message.success({
-      type: "success",
-      content: "复制成功",
-    });
+      type: 'success',
+      content: '复制成功'
+    })
   }
 
   useEffect(() => {
-    bookInfo._id && getNoteList(bookInfo._id);
-  }, [bookInfo]);
+    bookInfo._id && getNoteList(bookInfo._id)
+  }, [bookInfo])
 
   return (
     <CSSTransition
@@ -58,7 +58,7 @@ export default (props: drawerProps) => {
         id="drawerMask"
         key="one"
         onClick={toggleDrawer}
-        style={{ backgroundColor: "rgba(0,0,0,.4)" }}
+        style={{ backgroundColor: 'rgba(0,0,0,.4)' }}
         className="drawer-mask fixed inset-0 z-20"
       >
         <div className="scrollbar drawer absolute top-0 bottom-0 left-0 w-4/5 md:w-1/2 bg-white overflow-y-scroll">
@@ -87,11 +87,11 @@ export default (props: drawerProps) => {
                   </div>
                   <p>{item.content}</p>
                 </div>
-              );
+              )
             })}
           </div>
         </div>
       </div>
     </CSSTransition>
-  );
+  )
 }

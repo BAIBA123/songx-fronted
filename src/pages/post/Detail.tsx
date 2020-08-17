@@ -1,46 +1,46 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from 'react'
 
 import moment from 'moment'
-import http from "../../utils/http";
-import { Link } from "react-router-dom";
-import DetailSkele from "./skeleton/Detail";
+import http from '../../utils/http'
+import { Link } from 'react-router-dom'
+import DetailSkele from './skeleton/Detail'
 import Comment from './components/detail/Comment'
 import SubTitle from './components/detail/SubTitle'
 
 export default (props: any) => {
-  let ele: React.ReactElement;
-  const [loading, setLoading] = useState(false);
+  let ele: React.ReactElement
+  const [loading, setLoading] = useState(false)
   const [article, setArticle] = useState({
-    title: "",
-    pic: "",
-    author: "",
-    date: "",
-    minutes: "",
+    title: '',
+    pic: '',
+    author: '',
+    date: '',
+    minutes: '',
     tags: [],
-    prev: "",
-    next: "",
+    prev: '',
+    next: '',
     content: ''
-  });
+  })
 
   const getInit = useCallback(async () => {
-    const res: any = await http.get(`rest/post/${props.match.params.id}`);
-    setArticle(res.item);
-    setLoading(false);
-  }, [props]);
+    const res: any = await http.get(`rest/post/${props.match.params.id}`)
+    setArticle(res.item)
+    setLoading(false)
+  }, [props])
 
   useEffect(() => {
-    getInit();
-  }, [getInit]);
+    getInit()
+  }, [getInit])
 
   if (loading) {
-    ele = <DetailSkele></DetailSkele>;
+    ele = <DetailSkele></DetailSkele>
   } else {
     ele = (
       <div className="flex justify-center xl:justify-start">
         <div className="left w-800px w-full">
-          <div 
-            className="mb-10 h-48 md:h-72 xl:h-80 w-full rounded-md bg-no-repeat bg-cover bg-center" 
-            style={{backgroundImage: `url(${article.pic})`}}>
+          <div
+            className="mb-10 h-48 md:h-72 xl:h-80 w-full rounded-md bg-no-repeat bg-cover bg-center"
+            style={{ backgroundImage: `url(${article.pic})` }}>
           </div>
           <div className="flex items-center mb-8">
             <div className="mr-2">
@@ -69,12 +69,12 @@ export default (props: any) => {
                   >
                     {item}
                   </span>
-                );
+                )
               })}
           </div>
 
           <div className="a-content mb-20">
-            <div dangerouslySetInnerHTML={{__html: article.content}}></div>
+            <div dangerouslySetInnerHTML={{ __html: article.content }}></div>
           </div>
 
           <p className="text-center text-gray-200 font-medium text-3xl mb-20">
@@ -108,7 +108,7 @@ export default (props: any) => {
           <SubTitle></SubTitle>
         </div>
       </div>
-    );
+    )
   }
-  return <div className="py-10 px-4 md:px-8 max-w-1200px mx-auto">{ele}</div>;
+  return <div className="py-10 px-4 md:px-8 max-w-1200px mx-auto">{ele}</div>
 }

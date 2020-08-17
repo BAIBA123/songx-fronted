@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import moment from "moment";
-import {Link} from 'react-router-dom'
-import PostSkele from "../skeleton/Post";
-import Drawer from "../../../components/Drawer";
+import React, { useState } from 'react'
+import moment from 'moment'
 import CountUp from 'react-countup'
+import { Link } from 'react-router-dom'
+import PostSkele from '../skeleton/Post'
+import Drawer from '../../../components/Drawer'
 
 interface list {
   id: number;
@@ -33,20 +33,20 @@ interface Ibook {
 }
 
 export default (props: PostProps) => {
-  const { updates, loading } = props;
-  const [showDrawer, setShowDrawer] = useState(false);
-  const [bookInfo, setBookInfo] = useState({ _id: '', name: "", author: "", pic: "" });
+  const { updates, loading } = props
+  const [showDrawer, setShowDrawer] = useState(false)
+  const [bookInfo, setBookInfo] = useState({ _id: '', name: '', author: '', pic: '' })
 
   const showNote = async (val: Ibook) => {
-    setBookInfo(val);
-    setShowDrawer(true);
-  };
+    setBookInfo(val)
+    setShowDrawer(true)
+  }
 
   const toggleDrawer = (flag: boolean) => {
-    setShowDrawer(flag);
-  };
+    setShowDrawer(flag)
+  }
 
-  const skeleton: React.ReactElement = <PostSkele></PostSkele>;
+  const skeleton: React.ReactElement = <PostSkele></PostSkele>
 
   const html: React.ReactElement = (
     <div>
@@ -70,7 +70,7 @@ export default (props: PostProps) => {
 
               <div className="right w-4/5">
                 {item.list.map((val: any) => {
-                  let html = (
+                  const html = (
                     <div className="w-full flex hover:bg-gray-200 p-2 rounded transform -skew-x-6">
                       <div className="h-10 w-2/12 flex items-center justify-center mr-2 transform skew-x-6 flex-shrink-0">
                         <img
@@ -82,7 +82,7 @@ export default (props: PostProps) => {
                       <div className="transform skew-x-6 w-4/5">
                         <p className="truncate">{val.name}</p>
                         <p className="text-xs text-gray-500 font-din">
-                          {moment(val.start_date).format("YYYY/MM/DD")}
+                          {moment(val.start_date).format('YYYY/MM/DD')}
                         </p>
                       </div>
                     </div>
@@ -98,16 +98,16 @@ export default (props: PostProps) => {
                 })}
               </div>
             </div>
-          );
+          )
         })}
       </div>
     </div>
-  );
+  )
 
   return (
     <div>
       {loading ? skeleton : html}
       <Drawer showDrawer={showDrawer} toggleDrawer={toggleDrawer} bookInfo={bookInfo}></Drawer>
     </div>
-  );
-};
+  )
+}

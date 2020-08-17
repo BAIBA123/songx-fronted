@@ -1,45 +1,43 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from 'react'
 
 export default function SubTitle () {
-  let ele: React.ReactElement
   const [currId, setCurrId] = useState()
   const [target, setTarget] = useState<any>()
 
   const scrollFn = useCallback(() => {
     const scrollTop: number = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop
     target && target.forEach((item: any) => {
-      scrollTop > item.offsetTop - 50 && setCurrId(item.id) 
+      scrollTop > item.offsetTop - 50 && setCurrId(item.id)
     })
   }, [target])
 
   const init = () => {
-    let h3List = document.getElementsByTagName('h3')
-    for (let i = 0; i<h3List.length; i++) {
+    const h3List = document.getElementsByTagName('h3')
+    for (let i = 0; i < h3List.length; i++) {
       h3List[i].setAttribute('id', String(i))
     }
-    let target = Array.from(h3List);
+    const target = Array.from(h3List)
     setTarget(target)
   }
 
   useEffect(() => {
     setTimeout(() => {
       init()
-    },500)
+    }, 500)
   }, [])
 
   useEffect(() => {
     window.addEventListener('scroll', scrollFn)
-    return (() => {
+    return () => {
       window.removeEventListener('scroll', scrollFn)
-    })
+    }
   }, [scrollFn, target])
 
-
-  ele = target && target.map((item: any) => {
+  const ele = target && target.map((item: any) => {
     return (
-      <li 
-        key={item._id} 
-        className={`subtitle-li pl-4 ${currId === item.id ? 'active' : '' }`}>
+      <li
+        key={item.id}
+        className={`subtitle-li pl-4 ${currId === item.id ? 'active' : ''}`}>
         <a className="text-sm" href={`#${item.id}`}>{item.innerHTML}</a>
       </li>
     )

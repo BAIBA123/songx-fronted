@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { CSSTransition } from "react-transition-group";
-import "../style/css/animate.css";
+import React, { useState, useEffect } from 'react'
+import '../style/css/animate.css'
+import { CSSTransition } from 'react-transition-group'
 
-export default function BackTop() {
+export default function BackTop () {
   const [showDrawer, setShowDrawer] = useState(false)
 
   const scrollTop = () => {
-    let anchor = document.querySelector('#anchor')
-    anchor && anchor.scrollIntoView({behavior: 'smooth'})
+    const anchor = document.querySelector('#anchor')
+    anchor && anchor.scrollIntoView({ behavior: 'smooth' })
   }
 
   const scrollFn = () => {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
     setShowDrawer(scrollTop > 100)
   }
 
   useEffect(() => {
     window.addEventListener('scroll', scrollFn)
-    return (() => {
+    return () => {
       window.removeEventListener('scroll', scrollFn)
-    })
+    }
   })
 
   return (
@@ -33,5 +33,5 @@ export default function BackTop() {
         <i className="iconfont icon-arrowup"></i>
       </div>
     </CSSTransition>
-  );
+  )
 }

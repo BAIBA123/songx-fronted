@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 interface TitleProps {
   title: {
@@ -7,7 +7,7 @@ interface TitleProps {
   }
 }
 
-export default (props: TitleProps) => {
+export default function PartTitle (props: TitleProps) {
   const { title } = props
 
   return (

@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Tooltip } from "antd";
-import Drawer from "../../../components/Drawer";
+import React, { useState } from 'react'
+import { Tooltip } from 'antd'
+import Drawer from '../../../components/Drawer'
 
 interface Ibook {
   _id: string;
@@ -21,31 +21,31 @@ interface listProps {
   // category: category[];
 }
 
-export default function List(props: listProps) {
+export default function List (props: listProps) {
   // const { category, books } = props
-  const { books, total } = props;
-  const [tagIndex, setTagIndex] = useState(0);
-  const [cateIndex, setCateIndex] = useState(0);
-  const [showDrawer, setShowDrawer] = useState(false);
-  const [bookInfo, setBookInfo] = useState({ _id: '', name: '', author: '', pic: '' });
+  const { books, total } = props
+  const [tagIndex, setTagIndex] = useState(0)
+  const [cateIndex, setCateIndex] = useState(0)
+  const [showDrawer, setShowDrawer] = useState(false)
+  const [bookInfo, setBookInfo] = useState({ _id: '', name: '', author: '', pic: '' })
 
   const cateClick = (cateIndex: number) => {
-    setTagIndex(0);
-    setCateIndex(cateIndex);
-  };
+    setTagIndex(0)
+    setCateIndex(cateIndex)
+  }
 
   const tagClick = (tagIndex: number) => {
-    setTagIndex(tagIndex);
-  };
+    setTagIndex(tagIndex)
+  }
 
   const toggleDrawer = (flag: boolean) => {
-    setShowDrawer(flag);
-  };
+    setShowDrawer(flag)
+  }
 
   const showNote = async (val: Ibook) => {
-    setBookInfo(val);
-    setShowDrawer(true);
-  };
+    setBookInfo(val)
+    setShowDrawer(true)
+  }
 
   return (
     <div className="mt-10">
@@ -124,7 +124,7 @@ export default function List(props: listProps) {
                           <span key={val._id} className="mr-2 text-gray-600">
                             {val.name}
                           </span>
-                        );
+                        )
                       })}
                       <i
                         onClick={() => showNote(item)}
@@ -136,10 +136,10 @@ export default function List(props: listProps) {
                     </div>
                   </div>
                 </div>
-              );
+              )
             })}
         </div>
       </div>
     </div>
-  );
+  )
 }
