@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Post () {
-  const list: number[] = [1, 1, 1, 1, 1]
+  const list = new Array(5).fill('')
 
   const ele = list.map((item, index) => {
     return (
