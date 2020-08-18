@@ -9,7 +9,7 @@ interface list {
   id: number;
   pic: string;
   name: string;
-  start_date: string;
+  startDate: string;
 }
 
 interface update {

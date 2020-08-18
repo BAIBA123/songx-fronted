@@ -24,19 +24,19 @@ interface listProps {
 export default function List (props: listProps) {
   // const { category, books } = props
   const { books, total } = props
-  const [tagIndex, setTagIndex] = useState(0)
-  const [cateIndex, setCateIndex] = useState(0)
+  // const [tagIndex, setTagIndex] = useState(0)
+  // const [cateIndex, setCateIndex] = useState(0)
   const [showDrawer, setShowDrawer] = useState(false)
   const [bookInfo, setBookInfo] = useState({ _id: '', name: '', author: '', pic: '' })
 
-  const cateClick = (cateIndex: number) => {
-    setTagIndex(0)
-    setCateIndex(cateIndex)
-  }
+  // const cateClick = (cateIndex: number) => {
+  //   setTagIndex(0)
+  //   setCateIndex(cateIndex)
+  // }
 
-  const tagClick = (tagIndex: number) => {
-    setTagIndex(tagIndex)
-  }
+  // const tagClick = (tagIndex: number) => {
+  //   setTagIndex(tagIndex)
+  // }
 
   const toggleDrawer = (flag: boolean) => {
     setShowDrawer(flag)
