@@ -34,10 +34,14 @@ export default function List () {
     <div className="flex flex-wrap">
       {post.map(item => {
         return (
-          <Link to={`/post/${item._id}`} className="w-1/2 md:w-1/4 px-2 mb-8 shadow-round py-2 rounded-md" key={item._id}>
-            <div className="shawod-lg mb-2 h-32 lg:h-40 rounded-md bg-cover bg-center" style={{ backgroundImage: `url(${item.pic})` }}></div>
-            <p className="text-lg">{item.name}</p>
-            <p className="text-sm text-gray-500 font-din">{moment(item.date).format('YYYY-MM-DD')}</p>
+          <Link to={`/post/${item._id}`} className="px-2 w-1/2 md:w-1/4 mb-8" key={item._id}>
+            <div className="shadow-round  rounded-md overflow-hidden border">
+              <div className="shawod-lg h-32 lg:h-40 bg-cover bg-center" style={{ backgroundImage: `url(${item.pic})` }}></div>
+              <div className="p-4">
+                <p className="text-lg">{item.name}</p>
+                <p className="text-sm text-gray-500 font-din">{moment(item.date).format('YYYY-MM-DD')}</p>
+              </div>
+            </div>
           </Link>
         )
       })}
