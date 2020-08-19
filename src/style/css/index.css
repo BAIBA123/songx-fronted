@@ -3581,6 +3581,14 @@ video {
   background-size: contain !important;
 }
 
+.bg-100\% {
+  background-size: 100% !important;
+}
+
+.bg-120\% {
+  background-size: 120% !important;
+}
+
 .border-collapse {
   border-collapse: collapse !important;
 }
@@ -18012,6 +18020,14 @@ video {
 
   .sm\:bg-contain {
     background-size: contain !important;
+  }
+
+  .sm\:bg-100\% {
+    background-size: 100% !important;
+  }
+
+  .sm\:bg-120\% {
+    background-size: 120% !important;
   }
 
   .sm\:border-collapse {
@@ -32448,6 +32464,14 @@ video {
     background-size: contain !important;
   }
 
+  .md\:bg-100\% {
+    background-size: 100% !important;
+  }
+
+  .md\:bg-120\% {
+    background-size: 120% !important;
+  }
+
   .md\:border-collapse {
     border-collapse: collapse !important;
   }
@@ -46882,6 +46906,14 @@ video {
     background-size: contain !important;
   }
 
+  .lg\:bg-100\% {
+    background-size: 100% !important;
+  }
+
+  .lg\:bg-120\% {
+    background-size: 120% !important;
+  }
+
   .lg\:border-collapse {
     border-collapse: collapse !important;
   }
@@ -61314,6 +61346,14 @@ video {
 
   .xl\:bg-contain {
     background-size: contain !important;
+  }
+
+  .xl\:bg-100\% {
+    background-size: 100% !important;
+  }
+
+  .xl\:bg-120\% {
+    background-size: 120% !important;
   }
 
   .xl\:border-collapse {
