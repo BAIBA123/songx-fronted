@@ -196,3 +196,18 @@
   transform: translateY(0);
 }
 
+.store-mask {
+  opacity: 0;
+  width: 100%;
+  color: #fff;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  transition: all .3s linear .3s;
+}
+
+.store-item:hover .store-mask {
+  opacity: 1;
+  background: linear-gradient(0deg,#2b6cb0,rgba(0,0,0,0));
+}
+

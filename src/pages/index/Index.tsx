@@ -15,7 +15,6 @@ export default function Index () {
   const scrollFn = () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
     setCurrTop(scrollTop)
-    console.log(scrollTop)
   }
 
   useEffect(() => {
@@ -52,7 +51,7 @@ export default function Index () {
           </div>
 
           {/* 笔记 */}
-          <div className={`mb-10 boxIn ${currTop > 500 && 'boxInActive'}`}>
+          <div className={`mb-10 boxIn ${currTop > 200 && 'boxInActive'}`}>
             <PartTitle title={{ en: 'NOTES', zh: '阅读笔记' }}></PartTitle>
             <MyNote></MyNote>
           </div>
@@ -64,7 +63,7 @@ export default function Index () {
           </div> */}
 
           {/* 友链 */}
-          <div className={`mb-10 boxIn ${currTop > 800 && 'boxInActive'}`}>
+          <div className={`mb-10 boxIn ${currTop > 600 && 'boxInActive'}`}>
             <PartTitle title={{ en: 'LINKS', zh: '友情链接' }}></PartTitle>
             <MyLink></MyLink>
           </div>

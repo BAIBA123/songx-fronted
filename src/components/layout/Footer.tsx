@@ -9,18 +9,18 @@ export default function Footer () {
           <img className="block mx-auto md:mx-0" src="/logo.png" alt=""/>
         </div>
         <div className="w-full md:w-1/2 xl:w-1/3 text-center md:text-right xl:text-center mb-6">
-          <Tooltip placement="top" title="bilibili">
+          <Tooltip placement="top" title="暂时还不能告诉你">
             <a href="1"><i className="text-gray-600 hover:text-gray-800 iconfont icon-weibo px-2 text-lg"></i></a>
           </Tooltip>
-          <Tooltip placement="top" title="weixin">
+          <Tooltip placement="top" title="暂时还不能告诉你">
             <a href="1"><i className="text-gray-600 hover:text-gray-800 iconfont icon-weixin px-2 text-lg"></i></a>
           </Tooltip>
-          <Tooltip placement="top" title="qq">
+          <Tooltip placement="top" title="暂时还不能告诉你">
             <a href="1"><i className="text-gray-600 hover:text-gray-800 iconfont icon-qq px-2 text-lg"></i></a>
           </Tooltip>
         </div>
         <div className="w-full md:w-1/2 xl:w-1/3 text-center md:text-left xl:text-right mb-6 text-xs">
-          <p className="text-gray-500">点燃你的狂热</p>
+          <p className="text-gray-500">偶尔有干净的潘西路过</p>
         </div>
       </div>
     </div>

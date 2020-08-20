@@ -52,7 +52,9 @@ export default function Store () {
           return (
             <a href={item.link} target="_blank" rel="noreferrer" className="w-1/2 md:w-1/4 lg:w-1/5 mb-4 px-2" key={item._id}>
               <div className="store-item rounded-md border overflow-hidden">
-                <div style={{ backgroundImage: `url(${item.pic})` }} className="h-32 bg-center bg-no-repeat bg-cover"></div>
+                <div style={{ backgroundImage: `url(${item.pic})` }} className="h-32 bg-center bg-no-repeat bg-cover flex items-end">
+                  <p className="text-sm store-mask">{item.name}</p>
+                </div>
                 <div className="p-4">
                   <p className="text-sm mb-4">{item.name}</p>
                   <p className="text-xs text-gray-500 flex justify-between">
