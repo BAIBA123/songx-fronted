@@ -14,9 +14,9 @@ interface ProjectProps {
 export default function Project (props: ProjectProps) {
   const { projects, loading } = props
 
-  const skeleton: React.ReactElement = <ProjectSkele></ProjectSkele>
+  const skeleton = <ProjectSkele></ProjectSkele>
 
-  const html: React.ReactElement = (
+  const html = (
     <div className="flex flex-wrap">
       {projects.map(item => {
         return (

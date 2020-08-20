@@ -54,7 +54,7 @@ export default function Store () {
               <div className="store-item rounded-md border overflow-hidden">
                 <div style={{ backgroundImage: `url(${item.pic})` }} className="h-32 bg-center bg-no-repeat bg-cover"></div>
                 <div className="p-4">
-                  <p className="text-sm mb-2">{item.name}</p>
+                  <p className="text-sm mb-4">{item.name}</p>
                   <p className="text-xs text-gray-500 flex justify-between">
                     <span className="bg-gray-500 px-2 rounded-full text-white">{item.keyword}</span>
                     <span className="font-din">{moment(item.start_date).format('YYYY-MM-DD')}</span>

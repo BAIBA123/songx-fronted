@@ -89,11 +89,11 @@ export default (props: PostProps) => {
                   )
                   switch (item.en) {
                     case 'read':
-                      return <div key={val._id} onClick={() => showNote(val)}>{html}</div>
+                      return <div key={val._id} onClick={() => showNote(val)} className="new-box">{html}</div>
                     case 'post':
-                      return <Link to={`/${item.en}/${val._id}`} key={val._id}>{html}</Link>
+                      return <Link to={`/${item.en}/${val._id}`} key={val._id} className="new-box block">{html}</Link>
                     default:
-                      return <a href={val.link} key={val._id} target="_blank" rel="noopener noreferrer">{html}</a>
+                      return <a href={val.link} key={val._id} target="_blank" rel="noopener noreferrer" className="new-box block">{html}</a>
                   }
                 })}
               </div>

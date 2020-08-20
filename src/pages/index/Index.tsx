@@ -10,6 +10,20 @@ export default function Index () {
   const [loading, setLoading] = useState(true)
   const [updates, setUpdates] = useState([])
   const [mainPic, setMainPic] = useState('')
+  const [currTop, setCurrTop] = useState(0)
+
+  const scrollFn = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+    setCurrTop(scrollTop)
+    console.log(scrollTop)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', scrollFn)
+    return () => {
+      window.removeEventListener('scroll', scrollFn)
+    }
+  })
 
   useEffect(() => {
     const getInit = async () => {
@@ -38,7 +52,7 @@ export default function Index () {
           </div>
 
           {/* 笔记 */}
-          <div className="mb-10">
+          <div className={`mb-10 boxIn ${currTop > 500 && 'boxInActive'}`}>
             <PartTitle title={{ en: 'NOTES', zh: '阅读笔记' }}></PartTitle>
             <MyNote></MyNote>
           </div>
@@ -50,7 +64,7 @@ export default function Index () {
           </div> */}
 
           {/* 友链 */}
-          <div className="mb-10">
+          <div className={`mb-10 boxIn ${currTop > 800 && 'boxInActive'}`}>
             <PartTitle title={{ en: 'LINKS', zh: '友情链接' }}></PartTitle>
             <MyLink></MyLink>
           </div>
