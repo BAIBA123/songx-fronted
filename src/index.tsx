@@ -11,9 +11,9 @@ import './style/css/tailwind.patch.css'
 import 'antd/dist/antd.css'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <App />,
+  // </React.StrictMode>,
   document.getElementById('root')
 )
 

@@ -5,6 +5,7 @@ import http from '../../utils/http/index'
 import Skeleton from './skeleton/Index'
 
 export default function Store () {
+  const left = [0, 50, 102]
   const pageSize: number = 8
   const [list, setList] = useState([])
   const [total, setTotal] = useState(0)
@@ -12,17 +13,7 @@ export default function Store () {
   const [loading, setLoading] = useState(true)
 
   const getStoreList = async (type: number = 0, pageNo: number = 1) => {
-    switch (type) {
-      case 1:
-        setKeyword(50)
-        break
-      case 2:
-        setKeyword(102)
-        break
-      default:
-        setKeyword(0)
-        break
-    }
+    setKeyword(type)
     const res: any = await http.get('/rest/store', { params: { pageSize, pageNo, type } })
     setList(res)
     setTotal(res.length)
@@ -44,7 +35,7 @@ export default function Store () {
           <span className="mr-4 cursor-pointer" onClick={() => getStoreList(0)}>文档</span>
           <span className="mr-4 cursor-pointer" onClick={() => getStoreList(1)}>技术</span>
           <span className="mr-4 cursor-pointer" onClick={() => getStoreList(2)}>其他</span>
-          <div className="absolute w-10 h-1 bg-blue-600 bottom-0 duration-200" style={{ transform: `translateX(${keyword}px)` }}></div>
+          <div className="absolute w-10 h-1 bg-blue-600 bottom-0 duration-200" style={{ transform: `translateX(${left[keyword]}px)` }}></div>
         </div>
       </h3>
       <div className="flex flex-wrap">

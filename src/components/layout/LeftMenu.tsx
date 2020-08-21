@@ -10,7 +10,6 @@ interface leftMenuProps {
 
 export default function LeftMenu (props: leftMenuProps) {
   const { show, toggle, menuList } = props
-  console.log(menuList)
   return (
     <CSSTransition
       in={show}
