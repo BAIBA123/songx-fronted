@@ -73,7 +73,7 @@ export default function Note () {
             <img className="rounded-sm" src={note.pic} alt="" />
           </div>
           <div>
-            <p className="text-base">{note.book}</p>
+            <p className="text-base">《{note.book}》</p>
             <p className="text-xs text-gray-500">{note.author}</p>
           </div>
         </div>

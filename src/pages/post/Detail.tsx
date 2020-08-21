@@ -50,7 +50,7 @@ export default (props: any) => {
           </div>
           <div>
             <p>{article.author}</p>
-            <p className="text-xs text-gray-600">
+            <p className="text-xs text-gray-600 font-din">
               {moment(article.date).format('YYYY-MM-DD')} 读完约 {article.minutes} 分钟
             </p>
           </div>
@@ -108,5 +108,5 @@ export default (props: any) => {
     </div>
   )
 
-  return <div className="py-10 px-4 md:px-8 max-w-1200px mx-auto">{loading ? skeleton : html}</div>
+  return <div className="py-5 px-4 md:px-8 max-w-1200px mx-auto">{loading ? skeleton : html}</div>
 }

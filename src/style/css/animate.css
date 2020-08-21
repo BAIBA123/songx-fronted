@@ -15,24 +15,54 @@
 }
 
 /* 内容动画 */
-.drawer-enter .drawer {
+.drawer-enter .drawer-box {
   opacity: 0;
   transform: translateX(-100%);
 }
-.drawer-enter-active .drawer {
+.drawer-enter-active .drawer-box {
   opacity: 1;
   transform: translateX(0%);
   transition: all 0.3s ease-in;
 }
-.drawer-exit .drawer {
+.drawer-exit .drawer-box {
   opacity: 1;
   transform: translateX(0%);
 }
-.drawer-exit-active .drawer {
+.drawer-exit-active .drawer-box {
   opacity: 0;
   transform: translateX(-100%);
   transition: all 0.3s ease-out;
 }
+
+/* 移动端左侧菜单 */
+.menu-enter.mask {
+  opacity: 0;
+}
+
+.menu-enter-active.mask {
+  opacity: 1;
+  transition: all 0.2s ease-in;
+}
+
+.menu-exit.mask {
+  opacity: 1;
+}
+.menu-exit-active.mask {
+  opacity: 0;
+  transition: all 0.2s ease-out;
+}
+
+.menu-enter .w-32 {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.menu-enter-active .w-32 {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: all 0.3s ease-in;
+}
+
 
 /* top组件 */
 .top-enter-active {
@@ -120,13 +150,12 @@
 }
 
 .store-item {
-  height: 14rem;
   transition: all 0.3s linear;
 }
 
 .store-item:hover {
-  height: 8rem;
-  margin-top: 3rem;
+  height: 8rem!important;
+  margin-top: 2rem;
   animation: shine 1.5s infinite 0.3s;
 }
 

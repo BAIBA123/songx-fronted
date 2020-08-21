@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import http from '../../utils/http/index'
 import { NavLink, Link } from 'react-router-dom'
+import LeftMenu from './LeftMenu'
 
 export default function Header () {
+  const [show, setShow] = useState(false)
   const [menuList, setMenuList] = useState([])
 
   const getMenuList = async () => {
     const res: [] = await http.get('/rest/menu')
     setMenuList(res)
+  }
+
+  const toggle = () => {
+    setShow(!show)
   }
 
   useEffect(() => {
@@ -18,12 +24,14 @@ export default function Header () {
     <div className="header-box h-12 shadow fixed top-0 left-0 w-full z-20 bg-hazy-100">
       {/* 小屏 */}
       <div className="px-4 md:hidden flex items-center justify-between h-full">
-        <i className="iconfont icon-Menu"></i>
+        <i className="iconfont icon-Menu" onClick={toggle}></i>
         <Link to="/home">
           <h2>mignge</h2>
         </Link>
         <i className="iconfont icon-search"></i>
       </div>
+
+      <LeftMenu toggle={toggle} menuList={menuList} show={show} />
 
       {/* 大屏 */}
       <div className="px-8 hidden md:flex h-full items-center max-w-1200px mx-auto">

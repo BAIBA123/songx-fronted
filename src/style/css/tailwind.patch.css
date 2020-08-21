@@ -170,3 +170,8 @@ a:hover {
   /* background: linear-gradient(0deg,#eae5c9,#6cc6cb); */
   background: linear-gradient(0deg,#0c7bb3,rgba(0,0,0,0));
 }
+
+.mask {
+  background: rgba(0,0,0,.4);
+  backdrop-filter: saturate(180%) blur(2.5px);
+}

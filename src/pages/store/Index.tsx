@@ -51,12 +51,12 @@ export default function Store () {
         {list && list.map((item: any) => {
           return (
             <a href={item.link} target="_blank" rel="noreferrer" className="w-1/2 md:w-1/4 lg:w-1/5 mb-4 px-2" key={item._id}>
-              <div className="store-item rounded-md border overflow-hidden">
-                <div style={{ backgroundImage: `url(${item.pic})` }} className="h-32 bg-center bg-no-repeat bg-cover flex items-end">
+              <div className="store-item h-40 sm:h-48 rounded-md border overflow-hidden">
+                <div style={{ backgroundImage: `url(${item.pic})` }} className="h-24 sm:h-32 bg-center bg-no-repeat bg-cover flex items-end">
                   <p className="text-sm store-mask">{item.name}</p>
                 </div>
-                <div className="p-4">
-                  <p className="text-sm mb-4">{item.name}</p>
+                <div className="py-2 px-4">
+                  <p className="text-sm mb-2 truncate">{item.name}</p>
                   <p className="text-xs text-gray-500 flex justify-between">
                     <span className="bg-gray-500 px-2 rounded-full text-white">{item.keyword}</span>
                     <span className="font-din">{moment(item.start_date).format('YYYY-MM-DD')}</span>
@@ -72,7 +72,7 @@ export default function Store () {
   )
 
   return (
-    <div className="py-10 px-4 md:px-8 max-w-1200px mx-auto">
+    <div className="py-5 px-4 md:px-8 max-w-1200px mx-auto">
       {loading ? skeleton : html}
     </div>
   )

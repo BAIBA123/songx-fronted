@@ -25,7 +25,7 @@ export default function Index () {
   }, [])
 
   return (
-    <div className="read-box py-10 px-4 md:px-8 max-w-1200px mx-auto">
+    <div className="read-box py-5 px-4 md:px-8 max-w-1200px mx-auto">
       <Data></Data>
       <Note></Note>
       {/* <List category={category} books={books}></List> */}

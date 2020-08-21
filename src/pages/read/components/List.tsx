@@ -87,11 +87,11 @@ export default function List (props: listProps) {
       </div> */}
 
       <div className="book-list">
-        <div className="mb-8">
-          <span className="text-3xl text-gray-700 font-medium mr-4">
+        <div className="mb-8 font-medium text-3xl font-din">
+          <span className="text-gray-700 mr-4">
             {total}
           </span>
-          <span className="text-3xl text-gray-400 font-medium">books</span>
+          <span className="text-gray-400 ">books</span>
         </div>
 
         <div className="flex flex-wrap">
@@ -100,7 +100,7 @@ export default function List (props: listProps) {
               return (
                 <div
                   key={item._id}
-                  className="w-full md:w-1/2 xl:w-1/4 relative rounded h-40 mb-8 p-2 text-xs"
+                  className="w-full md:w-1/2 xl:w-1/4 relative rounded h-40 mb-2 p-2 text-xs"
                 >
                   <div
                     className="opacity-25 blur-100 bg-cover bg-center h-full w-full"

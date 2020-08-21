@@ -28,12 +28,12 @@ export default function List () {
     <div className="flex flex-wrap">
       {post.map(item => {
         return (
-          <Link to={`/post/${item._id}`} className="px-2 w-1/2 md:w-1/4 mb-8" key={item._id}>
+          <Link to={`/post/${item._id}`} className="px-1 w-1/2 md:w-1/4 mb-4" key={item._id}>
             <div className="shadow-round  rounded-md overflow-hidden border">
-              <div className="shawod-lg h-32 lg:h-40 bg-cover bg-center" style={{ backgroundImage: `url(${item.pic})` }}></div>
-              <div className="p-4">
-                <p className="text-lg">{item.name}</p>
-                <p className="text-sm text-gray-500 font-din">{moment(item.date).format('YYYY-MM-DD')}</p>
+              <div className="shawod-lg h-24 sm:h-32 lg:h-40 bg-cover bg-center" style={{ backgroundImage: `url(${item.pic})` }}></div>
+              <div className="p-2 sm:p-4">
+                <p className="truncate">{item.name}</p>
+                <p className="text-xs md:text-sm text-gray-500 font-din">{moment(item.date).format('YYYY-MM-DD')}</p>
               </div>
             </div>
           </Link>
@@ -43,9 +43,9 @@ export default function List () {
   )
 
   return (
-    <div className="py-10 px-4 md:px-8 max-w-1200px mx-auto">
+    <div className="py-5 px-4 md:px-8 max-w-1200px mx-auto">
       {loading ? skeleton : html}
-      <Pagination defaultCurrent={1} pageSize={pageSize} total={total} onChange={(pageNo) => getPostList(pageNo)} />,
+      <Pagination className="pl-1" defaultCurrent={1} pageSize={pageSize} total={total} onChange={(pageNo) => getPostList(pageNo)} />,
     </div>
   )
 }

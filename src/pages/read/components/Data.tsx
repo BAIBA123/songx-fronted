@@ -3,19 +3,19 @@ import { Progress } from 'antd'
 
 export default function Data () {
   return (
-    <div className="mb-12">
-      <div className="flex">
-        <div className="w-1/3 mx-1 py-6 bg-blue-500 rounded-md text-center mb-4">
-          <p className="text-3xl font-medium text-white">100</p>
-          <p className="text-sm text-white">已购</p>
+    <div className="mb-8">
+      <div className="flex text-white font-din">
+        <div className="w-1/3 mx-1 py-4 bg-blue-500 rounded-md text-center mb-4">
+          <p className="text-4xl font-medium">100</p>
+          <p className="text-sm">已购</p>
         </div>
-        <div className="w-1/3 mx-1 py-6 bg-orange-500 rounded-md text-center mb-4">
-          <p className="text-3xl font-medium text-white">50</p>
-          <p className="text-sm text-white">已读</p>
+        <div className="w-1/3 mx-1 py-4 bg-orange-500 rounded-md text-center mb-4">
+          <p className="text-4xl font-medium">50</p>
+          <p className="text-sm">已读</p>
         </div>
-        <div className="w-1/3 mx-1 py-6 bg-green-500 rounded-md text-center mb-4">
-          <p className="text-3xl font-medium text-white">10</p>
-          <p className="text-sm text-white">推荐</p>
+        <div className="w-1/3 mx-1 py-4 bg-green-500 rounded-md text-center mb-4">
+          <p className="text-4xl font-medium">10</p>
+          <p className="text-sm">推荐</p>
         </div>
       </div>
       <div className="flex flex-col md:flex-row">

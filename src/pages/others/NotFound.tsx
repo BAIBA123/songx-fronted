@@ -5,7 +5,7 @@ export default function NotFound () {
     <div
       className="bg-white pt-40 pb-48 bg-contain bg-no-repeat bg-center text-center"
       style={{ backgroundImage: 'url(' + require('../../../public/pics/404.png') + ')' }}>
-      <h1 className="mb-12 text-6xl flex justify-center">
+      <h1 className="mb-8 text-6xl flex justify-center">
         <span className="border-double text-gray-700 h-24 w-24 border-4 -mx-1 bg-white leading-24 font-kxzd">肆</span>
         <span className="border-double text-gray-700 h-24 w-24 border-4 -mx-1 bg-white leading-24 font-kxzd rounded-full">零</span>
         <span className="border-double text-gray-700 h-24 w-24 border-4 -mx-1 bg-white leading-24 font-kxzd">肆</span>
