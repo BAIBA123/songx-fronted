@@ -48,7 +48,7 @@ html {
   scroll-behavior: smooth;
 }
 
-.a-content code {
+.a-content pre {
   display: block;
   background-color: #f6f8fa;
   border-radius: 3px;
@@ -164,4 +164,9 @@ a:hover {
 ::selection {
   color: #fff;
   background: #48bb78!important;
+}
+
+.p-liner {
+  /* background: linear-gradient(0deg,#eae5c9,#6cc6cb); */
+  background: linear-gradient(0deg,#0c7bb3,rgba(0,0,0,0));
 }

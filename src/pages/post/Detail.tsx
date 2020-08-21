@@ -34,8 +34,8 @@ export default (props: any) => {
   const skeleton = <DetailSkele></DetailSkele>
 
   const html = (
-    <div className="flex justify-center xl:justify-start">
-      <div className="left w-800px">
+    <div className="flex">
+      <div className="left w-full md:w-800px">
         <div
           className="mb-10 h-48 md:h-72 xl:h-80 w-full rounded-md bg-no-repeat bg-cover bg-center shadow"
           style={{ backgroundImage: `url(${article.pic})` }}>
@@ -79,10 +79,10 @@ export default (props: any) => {
           -THE END-
         </p>
 
-        <div className="flex mb-20">
+        <div className="md:flex mb-20">
           <Link
             to={`/post/detail/${article.prev}`}
-            className="mr-2 w-1/2 bg-gray-100 hover:bg-gray-300 p-3 transform -skew-x-6 rounded-md"
+            className="mr-2 mb-4 block w-full md:w-1/2 bg-gray-100 hover:bg-gray-300 p-3 transform -skew-x-6 rounded-md"
           >
             <div className="transform skew-x-6">
               <p>上一篇</p>
@@ -91,7 +91,7 @@ export default (props: any) => {
           </Link>
           <Link
             to={`/post/detail/${article.next}`}
-            className="w-1/2 bg-gray-100 hover:bg-gray-300 p-3 transform -skew-x-6 rounded-md"
+            className="block mb-4 w-full md:w-1/2 bg-gray-100 hover:bg-gray-300 p-3 transform -skew-x-6 rounded-md"
           >
             <div className="text-right transform skew-x-6">
               <p>下一篇</p>

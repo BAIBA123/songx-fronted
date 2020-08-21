@@ -22,20 +22,20 @@ export default function Comment () {
   })
 
   return (
-    <div className="bg-gray-100 border rounded-lg p-4">
+    <div className="bg-gray-100 border rounded-lg p-4 text-sm">
       <div className="flex justify-between mb-2">
         <span>评论内容</span>
         <Popover placement="topRight" content={<div className="flex flex-wrap w-56 h-56 overflow-auto">{content}</div>} trigger="click">
           <i className="h-6 w-6 bg-blue-600"></i>
         </Popover>
       </div>
-      <textarea className="h-16 border w-full rounded-md mb-4 p-2"></textarea>
-      <div className="flex mb-4">
-        <div className="w-1/2 pr-2">
+      <textarea className="h-16 border w-full rounded-md mb-2 p-2"></textarea>
+      <div className="mb-4 flex flex-wrap">
+        <div className="w-full md:w-1/2 md:pr-2 mb-2">
           <p className="mb-2">昵称</p>
           <input type="text" className="w-full border h-8 rounded-md" />
         </div>
-        <div className="w-1/2 pl-2">
+        <div className="w-full md:w-1/2 md:pl-2">
           <p className="mb-2">邮箱</p>
           <input type="text" className="w-full border h-8 rounded-md" />
         </div>
@@ -43,7 +43,7 @@ export default function Comment () {
       <div className="flex items-center">
         <input type="checkbox" id="remember" className="mr-1" />
         <label htmlFor="remember">记住我</label>
-        <button className="ml-auto border py-2 px-3 rounded bg-blue-600 text-white">
+        <button className="ml-auto border py-1 px-2 rounded bg-blue-600 text-white">
           发表评论
         </button>
       </div>

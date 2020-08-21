@@ -11,12 +11,6 @@ export default function List () {
   const [loading, setLoading] = useState(true)
   const [post, setPost] = useState([{ _id: '', name: '', pic: '', date: '' }])
 
-  // const getInit = async () => {
-  //   const res: any = await http.get("rest/post");
-  //   setList(res)
-  //   setLoading(false)
-  // };
-
   const getPostList = async (pageNo: number = 1) => {
     const res: any = await http.get('/api/post', { params: { pageSize, pageNo } })
     setPost(res.items)
