@@ -1,34 +1,29 @@
-<!DOCTYPE html>
 <html>
+  <meta charset="UTF-8" />
   <head>
-    <meta charset="utf-8" />
-    <title>无标题文档</title>
+    <title>动态渐变</title>
   </head>
   <body>
-    <p class="test">XIN ZHUO YUE</p>
+    <style>
+      .page {
+        height: 80px;
+        width: 400;
+        border: 1px solid #000;
+      }
+
+      .page:hover {
+        background: linear-gradient(-70deg,#edf2f7 25%,#fff 37%,#edf2f7 63%);
+        background-size: 400%;
+        background-position: 100% 0%;
+        animation: gradient 2s linear forwards;
+      }
+
+      @keyframes gradient {
+        100% {
+          background-position: 0% 100%;
+        }
+      }
+    </style>
+    <div class="page"></div>
   </body>
-  <style>
-    .test {
-      display: block;
-      height: 80px;
-      width: 350px;
-      background: linear-gradient(186deg, #f2f2f2 25%, #e6e6e6 37%, #f2f2f2 63%);
-      background-size: 400% 100%;
-      transform: skewX(-6deg);
-      /* animation: ant-skeleton-loading 2s ease infinite; */
-    }
-
-    .test:hover {
-      animation: ant-skeleton-loading 2s ease;
-    }
-
-    @keyframes ant-skeleton-loading {
-      0% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0 50%;
-      }
-    }
-  </style>
 </html>

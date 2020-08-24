@@ -63,7 +63,6 @@
   transition: all 0.3s ease-in;
 }
 
-
 /* top组件 */
 .top-enter-active {
   transform: translateY(0);
@@ -154,7 +153,7 @@
 }
 
 .store-item:hover {
-  height: 8rem!important;
+  height: 8rem !important;
   margin-top: 2rem;
   animation: shine 1.5s infinite 0.3s;
 }
@@ -168,9 +167,9 @@
   }
 }
 
-.part-title-item  {
+.part-title-item {
   transform: translateX(-6rem);
-  background: linear-gradient(90deg,rgba(24,144,255,0) 0,#1890ff);
+  background: linear-gradient(90deg, rgba(24, 144, 255, 0) 0, #1890ff);
 }
 
 .part-box:hover > .part-title-item {
@@ -192,19 +191,19 @@
 }
 
 .right .new-box:nth-child(1) {
-  animation: newBoxIn .3s linear forwards;
+  animation: newBoxIn 0.3s linear forwards;
 }
 .right .new-box:nth-child(2) {
-  animation: newBoxIn .3s linear forwards .2s;
+  animation: newBoxIn 0.3s linear forwards 0.2s;
 }
 .right .new-box:nth-child(3) {
-  animation: newBoxIn .3s linear forwards .4s;
+  animation: newBoxIn 0.3s linear forwards 0.4s;
 }
 .right .new-box:nth-child(4) {
-  animation: newBoxIn .3s linear forwards .6s;
+  animation: newBoxIn 0.3s linear forwards 0.6s;
 }
 .right .new-box:nth-child(5) {
-  animation: newBoxIn .3s linear forwards .8s;
+  animation: newBoxIn 0.3s linear forwards 0.8s;
 }
 
 @keyframes newBoxIn {
@@ -216,8 +215,8 @@
 
 .boxIn {
   opacity: 0;
-  transform: translateY(100px);
-  transition: all .3s linear;
+  transform: translateY(150px);
+  transition: all 0.3s linear;
 }
 
 .boxInActive {
@@ -232,11 +231,23 @@
   height: 2rem;
   line-height: 2rem;
   text-align: center;
-  transition: all .3s linear .3s;
+  transition: all 0.3s linear 0.3s;
 }
 
 .store-item:hover .store-mask {
   opacity: 1;
-  background: linear-gradient(0deg,#2b6cb0,rgba(0,0,0,0));
+  background: linear-gradient(0deg, #2b6cb0, rgba(0, 0, 0, 0));
 }
 
+.new-item:hover {
+  background: linear-gradient(-70deg,#cbd5e0 25%,#fff 37%,#cbd5e0 63%);
+  background-size: 400%;
+  background-position: 100% 0%;
+  animation: gradient 1s linear forwards;
+}
+
+@keyframes gradient {
+  100% {
+    background-position: 0% 100%;
+  }
+}

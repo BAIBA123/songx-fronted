@@ -55,11 +55,11 @@ export default function Drawer (props: drawerProps) {
       unmountOnExit // 退出时卸载,移除元素
     >
       <div
-        id="drawerMask"
         key="one"
+        id="drawerMask"
         onClick={toggleDrawer}
-        style={{ backgroundColor: 'rgba(0,0,0,.4)' }}
         className="drawer-mask fixed inset-0 z-20"
+        style={{ backgroundColor: 'rgba(0,0,0,.4)' }}
       >
         <div className="scrollbar drawer-box absolute top-0 bottom-0 left-0 w-4/5 md:w-1/2 bg-white overflow-y-scroll">
           <div className="px-4 py-8 xl:px-12">
@@ -77,8 +77,8 @@ export default function Drawer (props: drawerProps) {
             {noteList.map(item => {
               return (
                 <div
-                  className="border-b border-gray-300 border-dashed py-3"
                   key={item.content}
+                  className="border-b border-gray-300 border-dashed py-3"
                 >
                   <div className="flex items-center w-full mb-4 text-gray-600">
                     <span className="text-xs text-gray-500 font-din">{moment(item.date).format('YYYY/MM/DD HH:MM:SS')}</span>
