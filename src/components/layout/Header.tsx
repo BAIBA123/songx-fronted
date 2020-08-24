@@ -26,7 +26,7 @@ export default function Header () {
       <div className="px-4 md:hidden flex items-center justify-between h-full">
         <i className="iconfont icon-Menu" onClick={toggle}></i>
         <Link to="/home">
-          <h2>mignge</h2>
+          <img className="h-12" src="/logo.png" alt="" />
         </Link>
         <i className="iconfont icon-search"></i>
       </div>

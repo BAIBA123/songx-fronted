@@ -19,6 +19,13 @@
   font-style: normal;  
 }
 
+@font-face {  
+  font-family: 'hwxk';   
+  src: url('../font/STKAITI.TTF');
+  font-weight: normal;  
+  font-style: normal;  
+}
+
 
 .font-din {
   font-family: din;
@@ -30,4 +37,8 @@
 
 .font-kxzd {
   font-family: kxzd;
+}
+
+.font-hwxk {
+  font-family: hwxk;
 }

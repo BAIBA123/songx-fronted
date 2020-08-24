@@ -132,7 +132,7 @@ html {
   /*滚动条里面小方块*/
   border-radius: 10px;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-  background: #4a5568;
+  background: rgba(0, 0, 0, .3);
 }
 
 /*滚动条里面轨道*/
@@ -174,4 +174,8 @@ a:hover {
 .mask {
   background: rgba(0,0,0,.4);
   backdrop-filter: saturate(180%) blur(2.5px);
+}
+
+.text-bg {
+  background: linear-gradient(0deg,rgba(0,0,0,.83),rgba(0,0,0,0));
 }
