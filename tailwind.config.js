@@ -46,8 +46,9 @@ const percent = {
 module.exports = {
   important: true,
   purge: {
-    enable: true,
-    content: ['./src/**/*.html', './src/**/*.tsx']
+    content: [
+      './src/**/*.tsx'
+    ]
   },
   theme: {
     extend: {
