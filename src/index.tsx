@@ -8,7 +8,7 @@ import './style/icons/iconfont.css'
 import './style/icons/icon2/iconfont.css'
 import './style/icons/icon3/iconfont.css'
 import './style/css/tailwind.patch.css'
-import 'antd/dist/antd.css'
+// import 'antd/dist/antd.css'
 
 ReactDOM.render(
   // <React.StrictMode>

@@ -45,10 +45,10 @@ const percent = {
 
 module.exports = {
   important: true,
-  purge: [
-    './src/**/*.html',
-    './src/**/*.jsx'
-  ],
+  purge: {
+    enable: true,
+    content: ['./src/**/*.html', './src/**/*.tsx']
+  },
   theme: {
     extend: {
       maxWidth: Object.assign({ '1200px': '1200px', '800px': '800px' }, base, extra, percent),
