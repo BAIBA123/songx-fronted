@@ -42,7 +42,7 @@ export default function Index () {
           className="h-56 md:h-112 xl:h-144 bg-no-repeat bg-cover bg-top relative"
           style={{ backgroundImage: `url(${mainPic.pic})` }}
         >
-          <p className="absolute bottom-0 w-full text-center text-bg block h-20 leading-20 text-white text-6xl font-hwxk">{mainPic.title}</p>
+          <p className="absolute bottom-0 w-full text-center text-bg block h-10 leading-10 text-xl md:h-20 md:leading-20 md:text-5xl text-white font-hwxk">{mainPic.title}</p>
         </div>
 
         <div className="px-4 md:px-8 max-w-1200px mx-auto">
