@@ -36,7 +36,7 @@ export default function Header () {
       {/* 大屏 */}
       <div className="px-8 hidden md:flex h-full items-center max-w-1200px mx-auto">
         <Link to="/home">
-          <img className="h-12" src="/logo.png" alt="" />
+          <img className="h-12 mr-8" src="/logo.png" alt="" />
         </Link>
         <ul className="flex text-sm mb-0">
           {

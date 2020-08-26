@@ -6,13 +6,13 @@ import Skeleton from './skeleton/Index'
 
 export default function Store () {
   const left = [0, 50, 102]
-  const pageSize: number = 8
+  const pageSize: number = 15
   const [list, setList] = useState([])
-  const [total, setTotal] = useState(0)
+  const [total, setTotal] = useState(1)
   const [keyword, setKeyword] = useState(0)
   const [loading, setLoading] = useState(true)
 
-  const getStoreList = async (type: number = 0, pageNo: number = 1) => {
+  const getStoreList = async (pageNo: number = 1, type: number = 0) => {
     setKeyword(type)
     const res: any = await http.get('/rest/store', { params: { pageSize, pageNo, type } })
     setList(res)

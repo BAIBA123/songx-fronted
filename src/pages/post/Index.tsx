@@ -6,8 +6,8 @@ import ListSkele from './skeleton/Index'
 import http from '../../utils/http/index'
 
 export default function List () {
-  const pageSize: number = 8
-  const [total, setTotal] = useState(0)
+  const pageSize: number = 12
+  const [total, setTotal] = useState(1)
   const [loading, setLoading] = useState(true)
   const [post, setPost] = useState([{ _id: '', name: '', pic: '', date: '' }])
 
