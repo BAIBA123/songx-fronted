@@ -10,7 +10,7 @@ import SubTitle from './components/detail/SubTitle'
 export default (props: any) => {
   const [loading, setLoading] = useState(false)
   const [article, setArticle] = useState({
-    title: '',
+    name: '',
     pic: '',
     author: '',
     date: '',
@@ -49,14 +49,14 @@ export default (props: any) => {
             />
           </div>
           <div>
-            <p>{article.author}</p>
+            <p className="font-din">Yi Xi</p>
             <p className="text-xs text-gray-600 font-din">
               {moment(article.date).format('YYYY-MM-DD')} 读完约 {article.minutes} 分钟
             </p>
           </div>
         </div>
 
-        <h1 className="text-3xl my-0">{article.title}</h1>
+        <h1 className="text-3xl my-0 text-gray-800 font-thin">{article.name}</h1>
         <div className="mb-10">
           {article.tags &&
             article.tags.map((item, index) => {

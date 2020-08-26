@@ -78,6 +78,11 @@ html {
   margin-bottom: 16px;
 }
 
+.a-content img {
+  display: block;
+  margin: 0 auto;
+}
+
 .subtitle-li {
   border-left: 2px solid #eee;
 }

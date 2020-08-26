@@ -42,7 +42,7 @@ export default function Store () {
         {list && list.map((item: any) => {
           return (
             <a href={item.link} target="_blank" rel="noreferrer" className="w-1/2 md:w-1/4 lg:w-1/5 mb-4 px-2" key={item._id}>
-              <div className="store-item h-40 sm:h-48 rounded-md border overflow-hidden">
+              <div className="store-item h-40 sm:h-48 rounded border overflow-hidden">
                 <div style={{ backgroundImage: `url(${item.pic})` }} className="h-24 sm:h-32 bg-center bg-no-repeat bg-cover flex items-end">
                   <p className="text-sm store-mask">{item.name}</p>
                 </div>
