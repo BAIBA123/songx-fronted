@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const http = axios.create({
   timeout: 30000,
-  baseURL: 'http://127.0.0.1:9876/frontend/'
+  baseURL: process.env.REACT_APP_BASE_API
 })
 
 http.interceptors.response.use(

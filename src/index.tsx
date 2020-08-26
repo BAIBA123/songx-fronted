@@ -9,9 +9,6 @@ import './style/icons/icon2/iconfont.css'
 import './style/icons/icon3/iconfont.css'
 import './style/css/tailwind.patch.css'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-)
+ReactDOM.render(<App />, document.getElementById('root'))
 
 serviceWorker.unregister()
