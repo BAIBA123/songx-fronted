@@ -14,6 +14,7 @@ export default function Store () {
 
   const getStoreList = async (pageNo: number = 1, type: number = 0) => {
     setKeyword(type)
+    console.log(keyword)
     const res: any = await http.get('/rest/store', { params: { pageSize, pageNo, type } })
     setList(res)
     setTotal(res.length)
@@ -32,9 +33,9 @@ export default function Store () {
         <span>{total}</span>
         <span className="text-gray-400 mr-8 ml-1"> ITEMS</span>
         <div className="text-lg relative pb-1">
-          <span className="mr-4 cursor-pointer" onClick={() => getStoreList(0)}>文档</span>
-          <span className="mr-4 cursor-pointer" onClick={() => getStoreList(1)}>技术</span>
-          <span className="mr-4 cursor-pointer" onClick={() => getStoreList(2)}>其他</span>
+          <span className="mr-4 cursor-pointer" onClick={() => getStoreList(1, 0)}>文档</span>
+          <span className="mr-4 cursor-pointer" onClick={() => getStoreList(1, 1)}>技术</span>
+          <span className="mr-4 cursor-pointer" onClick={() => getStoreList(1, 2)}>其他</span>
           <div className="absolute w-10 h-1 bg-blue-600 bottom-0 duration-200" style={{ transform: `translateX(${left[keyword]}px)` }}></div>
         </div>
       </h3>
