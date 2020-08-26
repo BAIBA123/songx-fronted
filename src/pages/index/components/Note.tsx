@@ -70,7 +70,7 @@ export default function Note () {
         <p className="mb-6 text-base">{note.content}</p>
         <div className="flex">
           <div className="w-1/6 mr-2">
-            <img className="rounded-sm" src={note.pic} alt="" />
+            <img className="rounded" src={note.pic} alt="" />
           </div>
           <div>
             <p className="text-base">《{note.book}》</p>
@@ -82,7 +82,7 @@ export default function Note () {
       {/* 大屏 */}
       <div className="hidden md:flex relative z-10">
         <div className="w-32 mr-10 flex-shrink-0">
-          <img src={note.pic} alt="" />
+          <img src={note.pic} className="rounded" alt="" />
         </div>
         <div className="flex flex-col">
           <p className="text-sm text-gray-600 mb-2">
@@ -103,26 +103,13 @@ export default function Note () {
   return (
     <div className="p-6 bg-gray-100 relative rounded-lg">
       {/* 背景图 */}
-      <div
-        className="absolute inset-0 opacity-25 bg-center bg-cover z-0 blur-100"
-        style={style}
-      ></div>
+      <div className="absolute inset-0 opacity-25 bg-center bg-cover z-0 blur-100" style={style} ></div>
       {loading ? skeleton : html}
-      <div className="absolute text-center cursor-pointer transform right-1/2 translate-x-1/2 border z-10 flex bg-white shadow-md rounded-lg overflow-hidden">
-        <i
-          onClick={() => copy()}
-          className="text-gray-600 block h-10 w-10 hover:bg-gray-300 leading-10 iconfont icon-copy"
-        ></i>
-        <i
-          onClick={() => share()}
-          className="text-gray-600 block h-10 w-10 hover:bg-gray-300 leading-10 iconfont icon-share"
-        ></i>
-        <button
-          onClick={getNote}
-          disabled={disabled}
-          className={'block h-10 w-10 hover:bg-gray-300 leading-10'}
-        >
-          <i className={`text-gray-600 block iconfont icon-refresh ${noteActive && 'noteActive'}`}></i>
+      <div className="absolute text-center cursor-pointer transform right-1/2 translate-x-1/2 border z-10 flex bg-white shadow-md rounded-lg overflow-hidden text-gray-600">
+        <i onClick={copy} className="h-10 w-10 hover:bg-gray-300 leading-10 iconfont icon-copy"></i>
+        <i onClick={share} className="h-10 w-10 hover:bg-gray-300 leading-10 iconfont icon-share"></i>
+        <button onClick={getNote} disabled={disabled} className={'h-10 w-10 hover:bg-gray-300 leading-10'}>
+          <i className={`block iconfont icon-refresh ${noteActive && 'noteActive'}`}></i>
         </button>
       </div>
     </div>

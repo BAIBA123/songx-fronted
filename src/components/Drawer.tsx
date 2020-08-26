@@ -65,7 +65,7 @@ export default function Drawer (props: drawerProps) {
           <div className="px-4 py-8 xl:px-12">
             <div className="flex mb-8">
               <div className="max-w-32 w-1/5 mr-4 flex-shrink-0">
-                <img src={bookInfo.pic} alt="" />
+                <img src={bookInfo.pic} className="shadow rounded" alt="" />
               </div>
               <div className="w-4/5">
                 <p className="text-lg text-gray-700 truncate mb-1">

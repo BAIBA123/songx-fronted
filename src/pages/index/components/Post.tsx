@@ -72,9 +72,9 @@ export default (props: PostProps) => {
                 {item.list.map((val: any) => {
                   const html = (
                     <div className="new-item w-full flex p-2 rounded transform -skew-x-6">
-                      <div className="h-10 w-2/12 flex items-center justify-center mr-2 transform skew-x-6 flex-shrink-0">
+                      <div className="h-12 w-2/12 flex items-center justify-center mr-2 transform skew-x-6 flex-shrink-0">
                         <img
-                          className="max-h-full max-w-full rounded"
+                          className="max-h-full max-w-full rounded shadow"
                           src={val.pic}
                           alt=""
                         />
