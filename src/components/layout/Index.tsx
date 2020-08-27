@@ -11,10 +11,10 @@ export default function Layout (props: LayoutProps) {
   const { children } = props
 
   return (
-    <div className="text-base">
+    <div>
       <Header />
       <div id="anchor"></div>
-      <div className="mt-12">
+      <div className="my-12">
         {children}
       </div>
       <Footer />

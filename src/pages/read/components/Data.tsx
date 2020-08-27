@@ -1,12 +1,17 @@
 import React from 'react'
 import { Progress } from 'antd'
 
-export default function Data () {
+interface dataProps {
+  total: number;
+}
+
+export default function Data (props: dataProps) {
+  const { total } = props
   return (
     <div className="mb-8">
       <div className="flex text-white font-din">
         <div className="w-1/3 mx-1 py-4 bg-blue-500 rounded-md text-center mb-4">
-          <p className="text-4xl font-medium">100</p>
+          <p className="text-4xl font-medium">{total}</p>
           <p className="text-sm">已购</p>
         </div>
         <div className="w-1/3 mx-1 py-4 bg-orange-500 rounded-md text-center mb-4">

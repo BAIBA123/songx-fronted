@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
-import http from '../../utils/http/index'
+
 import Post from './components/Post'
 import MyNote from './components/Note'
 import MyLink from './components/Link'
-// import MyProject from "./components/Project";
+import http from '../../utils/http/index'
 import PartTitle from './components/PartTitle'
 
 export default function Index () {
+  const [currTop, setCurrTop] = useState(0) // 当前滚动条高度
   const [loading, setLoading] = useState(true)
-  const [updates, setUpdates] = useState([])
+  const [updates, setUpdates] = useState([]) // 最新动态数据
   const [mainPic, setMainPic] = useState({ pic: '', title: '' })
-  const [currTop, setCurrTop] = useState(0)
 
   const scrollFn = () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
@@ -24,53 +24,50 @@ export default function Index () {
     }
   })
 
-  useEffect(() => {
-    const getInit = async () => {
-      const res: any = await http.get('/api/home')
+  const getInit = async () => {
+    const res: any = await http.get('/api/home')
+    setLoading(false)
+    setUpdates(res.updates)
+    setMainPic(res.mainPic[0])
+  }
 
-      setLoading(false)
-      setMainPic(res.mainPic[0])
-      setUpdates(res.updates)
-    }
+  useEffect(() => {
     getInit()
   }, [])
 
   return (
-    <div className="home-box">
-      <div className="swiper-container mb-20">
-        <div
-          className="h-56 md:h-112 xl:h-144 bg-no-repeat bg-cover bg-top relative"
-          style={{ backgroundImage: `url(${mainPic.pic})` }}
-        >
-          <p className="absolute bottom-0 w-full text-center text-bg block h-10 leading-10 text-xl md:h-20 md:leading-20 md:text-5xl text-white font-hwxk">{mainPic.title}</p>
+    <>
+      {/* 首页大图 */}
+      <div
+        className="h-56 md:h-112 xl:h-144 bg-base relative"
+        style={{ backgroundImage: `url(${mainPic.pic})` }}
+      >
+        <p className="absolute bottom-0 w-full text-center block h-10 leading-10 md:h-20 md:leading-20 text-xl md:text-5xl text-white">{mainPic.title}</p>
+      </div>
+
+      <div className="box-base md:px-8 text-base">
+        {/* 最近 */}
+        <div className="mb-10">
+          <PartTitle title={{ en: 'UPDATES', zh: '最新随笔' }}></PartTitle>
+          <Post updates={updates} loading={loading}></Post>
         </div>
 
-        <div className="px-4 md:px-8 max-w-1200px mx-auto">
-          {/* 最近 */}
-          <div className="mb-10">
-            <PartTitle title={{ en: 'UPDATES', zh: '最新随笔' }}></PartTitle>
-            <Post updates={updates} loading={loading}></Post>
-          </div>
-
-          {/* 笔记 */}
+        {/* 笔记 */}
+        <div className="mb-10">
+          <PartTitle title={{ en: 'NOTES', zh: '阅读笔记' }}></PartTitle>
           <div className={`mb-10 boxIn ${currTop > 200 && 'boxInActive'}`}>
-            <PartTitle title={{ en: 'NOTES', zh: '阅读笔记' }}></PartTitle>
             <MyNote></MyNote>
           </div>
+        </div>
 
-          {/* 项目 */}
-          {/* <div className="mb-10">
-            <PartTitle title={{ en: "PROJECTS", zh: "我的项目" }}></PartTitle>
-            <MyProject projects={projects} loading={loading}></MyProject>
-          </div> */}
-
-          {/* 友链 */}
+        {/* 友链 */}
+        <div className="mb-10">
+          <PartTitle title={{ en: 'LINKS', zh: '友情链接' }}></PartTitle>
           <div className={`mb-10 boxIn ${currTop > 600 && 'boxInActive'}`}>
-            <PartTitle title={{ en: 'LINKS', zh: '友情链接' }}></PartTitle>
             <MyLink></MyLink>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

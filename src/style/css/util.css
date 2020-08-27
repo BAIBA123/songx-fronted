@@ -1,0 +1,7 @@
+.bg-base {
+  @apply bg-no-repeat bg-center bg-cover
+}
+
+.box-base {
+  @apply px-4 mx-auto max-w-1200px
+}

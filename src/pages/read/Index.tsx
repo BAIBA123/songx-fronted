@@ -22,7 +22,7 @@ export default function Index () {
 
   return (
     <div className="read-box py-5 px-4 md:px-8 max-w-1200px mx-auto">
-      <Data></Data>
+      <Data total={total}></Data>
       <Note></Note>
       <List books={books} total={total}></List>
       <Pagination defaultCurrent={1} pageSize={pageSize} total={total} onChange={(pageNo) => getBookList(pageNo)} />,

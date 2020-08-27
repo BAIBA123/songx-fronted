@@ -34,7 +34,7 @@ export default function Header () {
       <LeftMenu toggle={toggle} menuList={menuList} show={show} />
 
       {/* 大屏 */}
-      <div className="px-8 hidden md:flex h-full items-center max-w-1200px mx-auto">
+      <div className="box-base md:px-8 hidden md:flex h-full items-center">
         <Link to="/home">
           <img className="h-12 mr-8" src="/logo.png" alt="" />
         </Link>
