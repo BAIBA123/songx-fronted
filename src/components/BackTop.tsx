@@ -29,7 +29,7 @@ export default function BackTop () {
       in={showDrawer}
       classNames="top"
     >
-      <div onClick={scrollTop} className="flex items-center justify-center cursor-pointer rounded-full bg-white shadow border h-12 w-12 fixed right-0 bottom-0 mr-12 mb-20 z-50">
+      <div onClick={scrollTop} className="flex items-center justify-center cursor-pointer rounded-full bg-white shadow border h-12 w-12 fixed right-0 bottom-0 mr-12 mb-20 z-40">
         <i className="iconfont icon-arrowup"></i>
       </div>
     </CSSTransition>

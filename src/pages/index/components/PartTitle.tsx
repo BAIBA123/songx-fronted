@@ -2,8 +2,8 @@ import React from 'react'
 
 interface TitleProps {
   title: {
-    en: string,
-    zh: string
+    en: string;
+    zh: string;
   }
 }
 

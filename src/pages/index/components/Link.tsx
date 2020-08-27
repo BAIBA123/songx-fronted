@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
+
 import LinkSkele from '../skeleton/Link'
 import http from '../../../utils/http/index'
 
-interface link {
+interface ILink {
   _id: number;
   pic: string;
   name: string;
@@ -10,11 +11,11 @@ interface link {
 }
 
 export default function Link () {
-  const [links, setLinks] = useState([])
   const [loading, setLoading] = useState(true)
+  const [links, setLinks] = useState<ILink[]>([]) // 友链数据
 
   const getLinks = async () => {
-    const res: any = await http.get('/rest/link')
+    const res: ILink[] = await http.get('/rest/link')
     setLinks(res)
     setLoading(false)
   }
@@ -23,11 +24,11 @@ export default function Link () {
     getLinks()
   }, [])
 
-  const skeleton: React.ReactElement = <LinkSkele></LinkSkele>
+  const skeleton = <LinkSkele></LinkSkele>
 
-  const html: React.ReactElement = (
+  const html = (
     <div className="flex flex-wrap">
-      {links.map((item: link) => {
+      {links.map((item) => {
         return (
           <a
             key={item._id}
@@ -50,5 +51,5 @@ export default function Link () {
     </div>
   )
 
-  return <div>{loading ? skeleton : html}</div>
+  return <>{loading ? skeleton : html}</>
 }

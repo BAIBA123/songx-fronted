@@ -46,61 +46,58 @@ export default (props: PostProps) => {
     setShowDrawer(flag)
   }
 
-  const skeleton: React.ReactElement = <PostSkele></PostSkele>
+  const skeleton = <PostSkele></PostSkele>
 
-  const html: React.ReactElement = (
-    <div>
-      {/* 文章列表 */}
-      <div className="flex flex-wrap">
-        {updates.map((item) => {
-          return (
-            <div
-              key={item.en}
-              className="flex w-full md:w-1/2 xl:w-1/3 px-2 mb-4 cursor-pointer"
-            >
-              <div className="left w-1/5">
-                <h2 className="font-nav text-xl">
-                  {item.zh}
-                  <sup className="font-din ml-1">
-                    <CountUp start={0} end={item.num} />
-                  </sup>
-                </h2>
-                <p className="text-sm text-gray-500 font-din">/{item.en}</p>
-              </div>
-
-              <div className="right w-4/5">
-                {item.list.map((val: any) => {
-                  const html = (
-                    <div className="new-item w-full flex p-2 rounded transform -skew-x-6">
-                      <div className="h-12 w-2/12 flex items-center justify-center mr-2 transform skew-x-6 flex-shrink-0">
-                        <img
-                          className="max-h-full max-w-full rounded shadow"
-                          src={val.pic}
-                          alt=""
-                        />
-                      </div>
-                      <div className="transform skew-x-6 w-4/5">
-                        <p className="truncate">{val.name}</p>
-                        <p className="text-xs text-gray-500 font-din">
-                          {moment(val.start_date).format('YYYY/MM/DD')}
-                        </p>
-                      </div>
-                    </div>
-                  )
-                  switch (item.en) {
-                    case 'read':
-                      return <div key={val._id} onClick={() => showNote(val)} className="new-box">{html}</div>
-                    case 'post':
-                      return <Link to={`/${item.en}/${val._id}`} key={val._id} className="new-box block">{html}</Link>
-                    default:
-                      return <a href={val.link} key={val._id} target="_blank" rel="noopener noreferrer" className="new-box block">{html}</a>
-                  }
-                })}
-              </div>
+  const html = (
+    <div className="flex flex-wrap">
+      {updates.map((item) => {
+        return (
+          <div
+            key={item.en}
+            className="flex w-full md:w-1/2 xl:w-1/3 px-2 mb-4 cursor-pointer"
+          >
+            <div className="left w-1/5">
+              <h2 className="font-nav text-xl">
+                {item.zh}
+                <sup className="font-din ml-1">
+                  <CountUp start={0} end={item.num} />
+                </sup>
+              </h2>
+              <p className="text-sm text-gray-500 font-din">/{item.en}</p>
             </div>
-          )
-        })}
-      </div>
+
+            <div className="right w-4/5">
+              {item.list.map((val: any) => {
+                const html = (
+                  <div className="new-item w-full flex p-2 rounded transform -skew-x-6">
+                    <div className="h-12 w-2/12 flex items-center justify-center mr-2 transform skew-x-6 flex-shrink-0">
+                      <img
+                        className="max-h-full max-w-full rounded shadow"
+                        src={val.pic}
+                        alt=""
+                      />
+                    </div>
+                    <div className="transform skew-x-6 w-4/5">
+                      <p className="truncate">{val.name}</p>
+                      <p className="text-xs text-gray-500 font-din">
+                        {moment(val.start_date).format('YYYY/MM/DD')}
+                      </p>
+                    </div>
+                  </div>
+                )
+                switch (item.en) {
+                  case 'read':
+                    return <div key={val._id} onClick={() => showNote(val)} className="new-box">{html}</div>
+                  case 'post':
+                    return <Link to={`/${item.en}/${val._id}`} key={val._id} className="new-box block">{html}</Link>
+                  default:
+                    return <a href={val.link} key={val._id} target="_blank" rel="noopener noreferrer" className="new-box block">{html}</a>
+                }
+              })}
+            </div>
+          </div>
+        )
+      })}
     </div>
   )
 

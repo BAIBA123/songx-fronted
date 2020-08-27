@@ -1,15 +1,14 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 
-import { message } from 'antd'
 import moment from 'moment'
+import { message } from 'antd'
 import Copy from 'copy-to-clipboard'
 import NoteSkele from '../skeleton/Note'
 import http from '../../../utils/http/index'
 
 export default function Note () {
-  const [loading, setLoading] = useState(true)
-  const [disabled, setDisabled] = useState(false)
-  const [noteActive, setNoteActive] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [pic, setPic] = useState('') // 背景图片
   const [note, setNote] = useState({
     date: null,
     pic: '',
@@ -17,13 +16,10 @@ export default function Note () {
     author: '',
     content: ''
   })
-  const [style, setStyle] = useState({ backgroundImage: '' })
 
-  const getNote = useCallback(async () => {
-    setNoteActive(true)
+  const getNote = async () => {
+    setPic('')
     setLoading(true)
-    setDisabled(true)
-    setStyle({ backgroundImage: '' })
     const res: any = await http.get('/api/note')
     setNote({
       date: res.date,
@@ -34,11 +30,9 @@ export default function Note () {
     })
     setTimeout(() => {
       setLoading(false)
-      setStyle({ backgroundImage: `url(${note.pic})` })
-      setDisabled(false)
-      setNoteActive(false)
+      setPic(res.book_id.pic)
     }, 1000)
-  }, [note.pic])
+  }
 
   const copy = () => {
     Copy(note.content)
@@ -52,7 +46,7 @@ export default function Note () {
 
   useEffect(() => {
     getNote()
-  }, [getNote])
+  }, [])
 
   const skeleton: React.ReactElement = <NoteSkele></NoteSkele>
 
@@ -60,12 +54,8 @@ export default function Note () {
     <div>
       {/* 小屏 */}
       <div className="z-10 md:hidden">
-        <p className="text-sm text-gray-600 mb-2">
-          我在{' '}
-          <span className="font-din">
-            {moment(note.date).format('YYYY-MM-DD HH:MM:SS')}
-          </span>{' '}
-          读到
+        <p className="text-sm font-din text-gray-600 mb-2">
+          我在{ moment(note.date).format('YYYY-MM-DD HH:MM:SS') }读到
         </p>
         <p className="mb-6 text-base">{note.content}</p>
         <div className="flex">
@@ -85,12 +75,8 @@ export default function Note () {
           <img src={note.pic} className="rounded" alt="" />
         </div>
         <div className="flex flex-col">
-          <p className="text-sm text-gray-600 mb-2">
-            我在{' '}
-            <span className="font-din text-gray-600">
-              {moment(note.date).format('YYYY-MM-DD HH:MM:SS')}
-            </span>{' '}
-            读到
+          <p className="text-sm font-din text-gray-600 mb-2">
+            我在{ moment(note.date).format('YYYY-MM-DD HH:MM:SS') }读到
           </p>
           <p className="text-base mb-4">{note.content}</p>
           <p className="text-base mt-auto">{note.book}</p>
@@ -103,13 +89,13 @@ export default function Note () {
   return (
     <div className="p-6 bg-gray-100 relative rounded-lg">
       {/* 背景图 */}
-      <div className="absolute inset-0 opacity-25 bg-center bg-cover z-0 blur-100" style={style} ></div>
+      <div className="absolute inset-0 opacity-25 bg-center bg-cover z-0 blur-100" style={{ backgroundImage: `url(${pic})` }} ></div>
       {loading ? skeleton : html}
       <div className="absolute text-center cursor-pointer transform right-1/2 translate-x-1/2 border z-10 flex bg-white shadow-md rounded-lg overflow-hidden text-gray-600">
         <i onClick={copy} className="h-10 w-10 hover:bg-gray-300 leading-10 iconfont icon-copy"></i>
         <i onClick={share} className="h-10 w-10 hover:bg-gray-300 leading-10 iconfont icon-share"></i>
-        <button onClick={getNote} disabled={disabled} className={'h-10 w-10 hover:bg-gray-300 leading-10'}>
-          <i className={`block iconfont icon-refresh ${noteActive && 'noteActive'}`}></i>
+        <button onClick={getNote} disabled={loading} className={'h-10 w-10 hover:bg-gray-300 leading-10'}>
+          <i className={`block iconfont icon-refresh ${loading && 'noteActive'}`}></i>
         </button>
       </div>
     </div>

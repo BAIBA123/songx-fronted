@@ -8,12 +8,15 @@ import PartTitle from './components/PartTitle'
 
 export default function Index () {
   const [currTop, setCurrTop] = useState(0) // 当前滚动条高度
-  const [loading, setLoading] = useState(true)
   const [updates, setUpdates] = useState([]) // 最新动态数据
-  const [mainPic, setMainPic] = useState({ pic: '', title: '' })
+  const [loading, setLoading] = useState(true)
+  const [mainPic, setMainPic] = useState({ pic: '', title: '' }) // 首页大图
 
   const scrollFn = () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+    const scrollTop =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop
     setCurrTop(scrollTop)
   }
 
@@ -42,7 +45,9 @@ export default function Index () {
         className="h-56 md:h-112 xl:h-144 bg-base relative"
         style={{ backgroundImage: `url(${mainPic.pic})` }}
       >
-        <p className="absolute bottom-0 w-full text-center block h-10 leading-10 md:h-20 md:leading-20 text-xl md:text-5xl text-white">{mainPic.title}</p>
+        <p className="absolute bottom-0 w-full text-center block h-10 leading-10 md:h-20 md:leading-20 text-xl md:text-5xl text-white">
+          {mainPic.title}
+        </p>
       </div>
 
       <div className="box-base md:px-8 text-base">

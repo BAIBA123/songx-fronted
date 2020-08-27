@@ -58,7 +58,7 @@ export default function Drawer (props: drawerProps) {
         key="one"
         id="drawerMask"
         onClick={toggleDrawer}
-        className="drawer-mask fixed inset-0 z-20"
+        className="drawer-mask fixed inset-0 z-50"
         style={{ backgroundColor: 'rgba(0,0,0,.4)' }}
       >
         <div className="scrollbar drawer-box absolute top-0 bottom-0 left-0 w-4/5 md:w-1/2 bg-white overflow-y-scroll">
