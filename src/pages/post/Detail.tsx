@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import moment from 'moment'
 import http from '../../utils/http'
@@ -7,29 +7,29 @@ import DetailSkele from './skeleton/Detail'
 import Comment from './components/detail/Comment'
 import SubTitle from './components/detail/SubTitle'
 
-export default (props: any) => {
+export default function Deatil (props: any) {
   const [loading, setLoading] = useState(false)
   const [article, setArticle] = useState({
-    name: '',
     pic: '',
-    author: '',
-    date: '',
-    minutes: '',
+    name: '',
     tags: [],
-    prev: '',
+    date: '',
+    author: '',
+    minutes: '',
+    content: '',
     next: '',
-    content: ''
+    prev: ''
   })
 
-  const getInit = useCallback(async () => {
+  const getInit = async () => {
     const res: any = await http.get(`rest/post/${props.match.params.id}`)
     setArticle(res.item)
     setLoading(false)
-  }, [props])
+  }
 
   useEffect(() => {
     getInit()
-  }, [getInit])
+  }, [])
 
   const skeleton = <DetailSkele></DetailSkele>
 
@@ -38,8 +38,8 @@ export default (props: any) => {
       <div className="left w-full md:w-800px">
         <div
           className="mb-10 h-48 md:h-72 xl:h-80 w-full rounded-md bg-no-repeat bg-cover bg-center shadow"
-          style={{ backgroundImage: `url(${article.pic})` }}>
-        </div>
+          style={{ backgroundImage: `url(${article.pic})` }}
+        ></div>
         <div className="flex items-center mb-8">
           <div className="mr-2">
             <img
@@ -51,12 +51,15 @@ export default (props: any) => {
           <div>
             <p className="font-din">Yi Xi</p>
             <p className="text-xs text-gray-600 font-din">
-              {moment(article.date).format('YYYY-MM-DD')} 读完约 {article.minutes} 分钟
+              {moment(article.date).format('YYYY-MM-DD')} 读完约
+              { article.minutes} 分钟
             </p>
           </div>
         </div>
 
-        <h1 className="text-3xl my-0 text-gray-800 font-thin">{article.name}</h1>
+        <h1 className="text-3xl my-0 text-gray-800 font-thin">
+          {article.name}
+        </h1>
         <div className="mb-10">
           {article.tags &&
             article.tags.map((item, index) => {
@@ -108,5 +111,9 @@ export default (props: any) => {
     </div>
   )
 
-  return <div className="py-5 px-4 md:px-8 max-w-1200px mx-auto">{loading ? skeleton : html}</div>
+  return (
+    <div className="py-5 px-4 md:px-8 max-w-1200px mx-auto">
+      {loading ? skeleton : html}
+    </div>
+  )
 }

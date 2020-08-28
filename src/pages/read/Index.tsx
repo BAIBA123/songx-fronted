@@ -10,22 +10,25 @@ export default function Index () {
   const [total, setTotal] = useState(1)
   const [books, setBooks] = useState([])
 
-  const getBookList = async (pageNo: number = 1) => {
+  const getBooks = async (pageNo: number = 1) => {
     const res: any = await http.get('/api/book', { params: { pageSize, pageNo } })
     setBooks(res.items)
     setTotal(res.total)
   }
 
   useEffect(() => {
-    getBookList()
+    getBooks()
   }, [])
 
   return (
-    <div className="read-box py-5 px-4 md:px-8 max-w-1200px mx-auto">
+    <div className="py-5 md:px-8 box-base">
+      {/* 阅读数据 */}
       <Data total={total}></Data>
+      {/* 笔记 */}
       <Note></Note>
+      {/* 书籍列表 */}
       <List books={books} total={total}></List>
-      <Pagination defaultCurrent={1} pageSize={pageSize} total={total} onChange={(pageNo) => getBookList(pageNo)} />,
+      <Pagination defaultCurrent={1} pageSize={pageSize} total={total} onChange={(pageNo) => getBooks(pageNo)} />,
     </div>
   )
 }

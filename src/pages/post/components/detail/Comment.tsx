@@ -1,7 +1,6 @@
 import React from 'react'
 import { Popover } from 'antd'
-// import {} from 'ant-design/icons'
-
+import { SmileOutlined } from '@ant-design/icons'
 import emojis from '../../../../utils/configs/emoji'
 
 export default function Comment () {
@@ -25,8 +24,16 @@ export default function Comment () {
     <div className="bg-gray-100 border rounded-lg p-4 text-sm">
       <div className="flex justify-between mb-2">
         <span>评论内容</span>
-        <Popover placement="topRight" content={<div className="flex flex-wrap w-56 h-56 overflow-auto">{content}</div>} trigger="click">
-          <i className="h-6 w-6 bg-blue-600"></i>
+        <Popover
+          placement="topRight"
+          content={
+            <div className="flex flex-wrap w-56 h-56 overflow-auto">
+              {content}
+            </div>
+          }
+          trigger="hover"
+        >
+          <SmileOutlined className="text-xl cursor-pointer hover:text-blue-500" />
         </Popover>
       </div>
       <textarea className="h-16 border w-full rounded-md mb-2 p-2"></textarea>

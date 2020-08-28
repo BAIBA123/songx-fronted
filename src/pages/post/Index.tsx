@@ -5,13 +5,20 @@ import { Link } from 'react-router-dom'
 import ListSkele from './skeleton/Index'
 import http from '../../utils/http/index'
 
+interface IPost {
+  _id: string;
+  pic: string;
+  name: string;
+  date: string;
+}
+
 export default function List () {
   const pageSize: number = 12
   const [total, setTotal] = useState(1)
   const [loading, setLoading] = useState(true)
-  const [post, setPost] = useState([{ _id: '', name: '', pic: '', date: '' }])
+  const [post, setPost] = useState<IPost[]>([])
 
-  const getPostList = async (pageNo: number = 1) => {
+  const getPosts = async (pageNo: number = 1) => {
     const res: any = await http.get('/api/post', { params: { pageSize, pageNo } })
     setPost(res.items)
     setTotal(res.total)
@@ -19,7 +26,7 @@ export default function List () {
   }
 
   useEffect(() => {
-    getPostList()
+    getPosts()
   }, [])
 
   const skeleton = <ListSkele></ListSkele>
@@ -29,8 +36,8 @@ export default function List () {
       {post.map(item => {
         return (
           <Link to={`/post/${item._id}`} className="px-1 w-1/2 md:w-1/4 mb-4" key={item._id}>
-            <div className="shadow-round  rounded-md overflow-hidden border">
-              <div className="shawod-lg h-24 sm:h-32 lg:h-40 bg-cover bg-center" style={{ backgroundImage: `url(${item.pic})` }}></div>
+            <div className="shadow-round rounded-md overflow-hidden border">
+              <div className="shawod-lg h-24 sm:h-32 lg:h-40 bg-base" style={{ backgroundImage: `url(${item.pic})` }}></div>
               <div className="p-2 sm:p-4">
                 <p className="truncate">{item.name}</p>
                 <p className="text-xs md:text-sm text-gray-500 font-din">{moment(item.date).format('YYYY-MM-DD')}</p>
@@ -45,7 +52,7 @@ export default function List () {
   return (
     <div className="py-5 px-4 md:px-8 max-w-1200px mx-auto">
       {loading ? skeleton : html}
-      <Pagination className="pl-1" defaultCurrent={1} pageSize={pageSize} total={total} onChange={(pageNo) => getPostList(pageNo)} />,
+      <Pagination className="pl-1" defaultCurrent={1} pageSize={pageSize} total={total} onChange={(pageNo) => getPosts(pageNo)} />,
     </div>
   )
 }
