@@ -5,6 +5,7 @@ import { message } from 'antd'
 import Copy from 'copy-to-clipboard'
 import NoteSkele from '../skeleton/Note'
 import http from '../../../utils/http/index'
+import PicHover from '../../../components/PicHover'
 
 export default function Note () {
   const [loading, setLoading] = useState(false)
@@ -60,7 +61,7 @@ export default function Note () {
         <p className="mb-6 text-base">{note.content}</p>
         <div className="flex">
           <div className="w-1/6 mr-2">
-            <img className="rounded" src={note.pic} alt="" />
+            <img className="rounded shadow" src={note.pic} alt="" />
           </div>
           <div>
             <p className="text-base">《{note.book}》</p>
@@ -71,9 +72,9 @@ export default function Note () {
 
       {/* 大屏 */}
       <div className="hidden md:flex relative z-10">
-        <div className="w-32 mr-10 flex-shrink-0">
-          <img src={note.pic} className="rounded" alt="" />
-        </div>
+
+        <PicHover pic={note.pic} />
+
         <div className="flex flex-col">
           <p className="text-sm font-din text-gray-600 mb-2">
             我在{ moment(note.date).format('YYYY-MM-DD HH:MM:SS') }读到

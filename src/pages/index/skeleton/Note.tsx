@@ -16,7 +16,7 @@ export default function Note () {
       </div>
 
       <div className="hidden md:flex" style={{ height: '178px' }}>
-        <div className="sk w-32 h-40 mr-10"></div>
+        <div className="sk w-32 h-40 mr-10 card"></div>
         <div className="w-full">
           <p className="sk h-4 w-1/6 mb-2"></p>
           <p className="sk h-16 mb-8"></p>

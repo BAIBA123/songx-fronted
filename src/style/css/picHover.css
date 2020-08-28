@@ -1,0 +1,26 @@
+.card {
+  display: block;
+  transition: all 0.1s ease;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+  transform: perspective(500px) rotateX(3deg) rotateY(4deg) rotateZ(-5deg) scale(1.2);
+}
+.card .reflection {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+  position: absolute;
+  transition: all 0.1s ease;
+  mix-blend-mode: soft-light;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0);
+  transition: all 0.3s ease;
+}
