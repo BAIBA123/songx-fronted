@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import Index from './pages/index/Index'
 import Read from './pages/read/Index'
 import Store from './pages/store/Index'
@@ -20,6 +20,7 @@ function App () {
             <Route exact path="/read" component={Read}></Route>
             <Route exact path="/store" component={Store}></Route>
             <Route exact path="/post/:id" component={PostDetail}></Route>
+            <Redirect exact from="/" to="/home" ></Redirect>
             <Route component={NotFound} />
           </Switch>
         </Layout>
