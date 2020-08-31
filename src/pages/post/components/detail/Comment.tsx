@@ -14,7 +14,7 @@ export default function Comment (props: CommentProps) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [content, setContent] = useState('')
-  const [comments, setComments] = useState([{ name: '', date: '', content: '' }])
+  const [comments, setComments] = useState([{ name: '', date: '', content: '', pic: '' }])
 
   const getComments = async () => {
     const res: any = await http.get('rest/comment', { params: { postId } })
@@ -30,6 +30,7 @@ export default function Comment (props: CommentProps) {
     const arr = []
     const pattern = /\[e-[a-zA-Z]*\]/g
     for (const item of comments) {
+      item.pic = `/pics/avator/${Math.ceil(Math.random() * 10)}.jpg`
       item.content = item.content.replace(/[<>/]/g, '')
       console.log(item.content)
       const emojiList = item.content.match(pattern)
@@ -88,6 +89,7 @@ export default function Comment (props: CommentProps) {
   }
 
   useEffect(() => {
+    console.log(111)
     getComments()
   }, [])
 
@@ -108,13 +110,13 @@ export default function Comment (props: CommentProps) {
       {comments.map((item, index) => {
         return (
           <div className="flex mb-8" key={index}>
-            <div className="h-10 w-10 rounded-full">
-              <img src={`/pics/avator/${Math.ceil(Math.random() * 10)}.jpg`} className="h-full" alt=""/>
+            <div className="h-10 w-10 rounded-full flex-shrink-0">
+              <img src={item.pic} className="h-full" alt=""/>
             </div>
             <div className="flex-grow ml-4 px-4 py-3 bg-gray-100 rounded-lg">
               <p className="flex">
                 <span className="mb-1">{item.name}：</span>
-                <span className="ml-auto font-din text-gray-400">
+                <span className="ml-auto font-din text-gray-500">
                   {moment(item.date).format('YYYY-MM-DD HH:MM:SS')}
                 </span>
               </p>
