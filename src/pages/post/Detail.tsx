@@ -10,6 +10,7 @@ import SubTitle from './components/detail/SubTitle'
 export default function Deatil (props: any) {
   const [loading, setLoading] = useState(false)
   const [article, setArticle] = useState({
+    _id: '',
     pic: '',
     name: '',
     tags: [],
@@ -103,7 +104,7 @@ export default function Deatil (props: any) {
           </Link>
         </div>
 
-        <Comment></Comment>
+        <Comment postId={props.match.params.id}></Comment>
       </div>
       <div className="right hidden xl:block w-300px">
         <SubTitle></SubTitle>
