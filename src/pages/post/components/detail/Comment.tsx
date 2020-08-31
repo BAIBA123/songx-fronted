@@ -108,7 +108,9 @@ export default function Comment (props: CommentProps) {
       {comments.map((item, index) => {
         return (
           <div className="flex mb-8" key={index}>
-            <div className="h-10 w-10 rounded-full bg-gray-400"></div>
+            <div className="h-10 w-10 rounded-full">
+              <img src={`/pics/avator/${Math.ceil(Math.random() * 10)}.jpg`} className="h-full" alt=""/>
+            </div>
             <div className="flex-grow ml-4 px-4 py-3 bg-gray-100 rounded-lg">
               <p className="flex">
                 <span className="mb-1">{item.name}：</span>
