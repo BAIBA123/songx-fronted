@@ -7,13 +7,13 @@ import Note from '../index/components/Note'
 
 export default function Index () {
   const pageSize: number = 12
-  const [total, setTotal] = useState(1)
+  const [num, setNum] = useState([1, 1, 1])
   const [books, setBooks] = useState([])
 
   const getBooks = async (pageNo: number = 1) => {
     const res: any = await http.get('/api/book', { params: { pageSize, pageNo } })
     setBooks(res.items)
-    setTotal(res.total)
+    setNum(res.num)
   }
 
   useEffect(() => {
@@ -23,12 +23,12 @@ export default function Index () {
   return (
     <div className="py-5 md:px-8 box-base">
       {/* 阅读数据 */}
-      <Data total={total}></Data>
+      <Data num={num}></Data>
       {/* 笔记 */}
       <Note></Note>
       {/* 书籍列表 */}
-      <List books={books} total={total}></List>
-      <Pagination defaultCurrent={1} pageSize={pageSize} total={total} onChange={(pageNo) => getBooks(pageNo)} />,
+      <List books={books} total={num[0]}></List>
+      <Pagination defaultCurrent={1} pageSize={pageSize} total={num[0]} onChange={(pageNo) => getBooks(pageNo)} />,
     </div>
   )
 }
