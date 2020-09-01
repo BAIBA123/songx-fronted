@@ -8,6 +8,8 @@ import Comment from './components/detail/Comment'
 import SubTitle from './components/detail/SubTitle'
 
 export default function Deatil (props: any) {
+  const [next, setNext] = useState({ _id: '', name: '' })
+  const [before, setBefore] = useState({ _id: '', name: '' })
   const [loading, setLoading] = useState(false)
   const [article, setArticle] = useState({
     _id: '',
@@ -25,12 +27,14 @@ export default function Deatil (props: any) {
   const getInit = async () => {
     const res: any = await http.get(`rest/post/${props.match.params.id}`)
     setArticle(res.item)
+    setNext(res.next[0])
+    setBefore(res.before[0])
     setLoading(false)
   }
 
   useEffect(() => {
     getInit()
-  }, [])
+  }, [props.match.params.id])
 
   const skeleton = <DetailSkele></DetailSkele>
 
@@ -84,24 +88,26 @@ export default function Deatil (props: any) {
         </p>
 
         <div className="md:flex mb-20">
-          <Link
-            to={`/post/detail/${article.prev}`}
+          {before && <Link
+            to={`/post/${before._id}`}
             className="mr-2 mb-4 block w-full md:w-1/2 bg-gray-100 hover:bg-gray-300 p-3 transform -skew-x-6 rounded-md"
           >
             <div className="transform skew-x-6">
               <p>上一篇</p>
-              <p>三个游戏</p>
+              <p>{before.name}</p>
             </div>
           </Link>
-          <Link
-            to={`/post/detail/${article.next}`}
+          }
+          {next && <Link
+            to={`/post/${next._id}`}
             className="block mb-4 w-full md:w-1/2 bg-gray-100 hover:bg-gray-300 p-3 transform -skew-x-6 rounded-md"
           >
             <div className="text-right transform skew-x-6">
               <p>下一篇</p>
-              <p>三个游戏</p>
+              <p>{next.name}</p>
             </div>
           </Link>
+          }
         </div>
 
         <Comment postId={props.match.params.id}></Comment>
