@@ -46,7 +46,7 @@ export default function Header () {
                   to={item.link}
                   key={item.name}
                   activeClassName="bg-gray-400"
-                  className="px-3 py-1 transform -skew-x-6 rounded-sm hover:bg-gray-400 cursor-pointer">
+                  className="light-move px-3 py-1 transform -skew-x-6 rounded-sm hover:bg-gray-400 cursor-pointer">
                   <span className="block transform skew-x-6 font-nav">{item.name}</span>
                 </NavLink>
               )

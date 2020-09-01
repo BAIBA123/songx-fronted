@@ -239,7 +239,7 @@
   background: linear-gradient(0deg, #2b6cb0, rgba(0, 0, 0, 0));
 }
 
-.new-item:hover {
+.light-move:hover {
   background: linear-gradient(-70deg,#cbd5e0 25%,#fff 37%,#cbd5e0 63%);
   background-size: 400%;
   background-position: 100% 0%;

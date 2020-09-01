@@ -90,7 +90,7 @@ export default function Deatil (props: any) {
         <div className="md:flex mb-20">
           {before && <Link
             to={`/post/${before._id}`}
-            className="mr-2 mb-4 block w-full md:w-1/2 bg-gray-100 hover:bg-gray-300 p-3 transform -skew-x-6 rounded-md"
+            className="light-move mr-2 mb-4 block w-full md:w-1/2 bg-gray-100 hover:bg-gray-300 p-3 transform -skew-x-6 rounded-md"
           >
             <div className="transform skew-x-6">
               <p>上一篇</p>
@@ -100,7 +100,7 @@ export default function Deatil (props: any) {
           }
           {next && <Link
             to={`/post/${next._id}`}
-            className="block mb-4 w-full md:w-1/2 bg-gray-100 hover:bg-gray-300 p-3 transform -skew-x-6 rounded-md"
+            className="light-move block mb-4 w-full md:w-1/2 bg-gray-100 hover:bg-gray-300 p-3 transform -skew-x-6 rounded-md"
           >
             <div className="text-right transform skew-x-6">
               <p>下一篇</p>

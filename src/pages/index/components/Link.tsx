@@ -39,7 +39,7 @@ export default function Link () {
           >
             <div className="rounded-md link-box">
               <img
-                className="shadow-md rounded-full mb-2 mx-auto"
+                className="rounded-full mb-2 mx-auto"
                 src={item.pic}
                 alt=""
               />
