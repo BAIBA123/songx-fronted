@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import { Popover, message } from 'antd'
 import http from '../../../../utils/http/index'
-import { SmileOutlined } from '@ant-design/icons'
 import emojis from '../../../../utils/configs/emoji'
+import { SmileOutlined, CommentOutlined } from '@ant-design/icons'
 
 interface CommentProps {
   postId: string;
@@ -89,7 +89,6 @@ export default function Comment (props: CommentProps) {
   }
 
   useEffect(() => {
-    console.log(111)
     getComments()
   }, [])
 
@@ -105,26 +104,38 @@ export default function Comment (props: CommentProps) {
     )
   })
 
+  const commentHtml = comments.map((item, index) => {
+    return (
+      <div className="flex mb-8" key={index}>
+        <div className="h-10 w-10 rounded-full flex-shrink-0">
+          <img src={item.pic} className="h-full" alt=""/>
+        </div>
+        <div className="flex-grow ml-4 px-4 py-3 bg-gray-100 rounded-lg">
+          <p className="flex">
+            <span className="mb-1">{item.name}：</span>
+            <span className="ml-auto font-din text-gray-500">
+              {moment(item.date).format('YYYY-MM-DD HH:MM:SS')}
+            </span>
+          </p>
+          <div className="text-base text-black" dangerouslySetInnerHTML={{ __html: item.content }}></div>
+        </div>
+      </div>
+    )
+  })
+
+  const noCommentHtml = (
+    <div className="mb-4 py-10 text-center text-gray-400 text-xl border border-dashed rounded">
+      暂无评论~
+    </div>
+  )
+
   return (
     <div>
-      {comments.map((item, index) => {
-        return (
-          <div className="flex mb-8" key={index}>
-            <div className="h-10 w-10 rounded-full flex-shrink-0">
-              <img src={item.pic} className="h-full" alt=""/>
-            </div>
-            <div className="flex-grow ml-4 px-4 py-3 bg-gray-100 rounded-lg">
-              <p className="flex">
-                <span className="mb-1">{item.name}：</span>
-                <span className="ml-auto font-din text-gray-500">
-                  {moment(item.date).format('YYYY-MM-DD HH:MM:SS')}
-                </span>
-              </p>
-              <div className="text-base text-black" dangerouslySetInnerHTML={{ __html: item.content }}></div>
-            </div>
-          </div>
-        )
-      })}
+      <div className="flex items-center text-base mb-4">
+        <CommentOutlined />
+        <span className="ml-2 font-din">{comments.length} 条评论</span>
+      </div>
+      {comments.length ? commentHtml : noCommentHtml}
       <div className="bg-gray-100 border rounded-lg p-4 text-sm">
         <div className="flex justify-between mb-2">
           <span>评论内容<sup className="text-red-500">*</sup></span>
@@ -171,8 +182,6 @@ export default function Comment (props: CommentProps) {
           </div>
         </div>
         <div className="flex items-center">
-          {/* <input type="checkbox" id="remember" className="mr-1" /> */}
-          {/* <label htmlFor="remember">记住我</label> */}
           <button
             onClick={submit}
             className="ml-auto border py-1 px-2 rounded bg-blue-600 text-white"
