@@ -10,6 +10,7 @@ interface IPost {
   pic: string;
   name: string;
   date: string;
+  keywords: any;
 }
 
 export default function List () {
@@ -20,6 +21,10 @@ export default function List () {
 
   const getPosts = async (pageNo: number = 1) => {
     const res: any = await http.get('/api/post', { params: { pageSize, pageNo } })
+    res.items.forEach((item: any) => {
+      item.keywords = item.keywords ? item.keywords.split('=') : []
+    })
+    console.log(res.items)
     setPost(res.items)
     setTotal(res.total)
     setLoading(false)
@@ -40,7 +45,18 @@ export default function List () {
               <div className="shawod-lg h-24 sm:h-32 lg:h-40 bg-base" style={{ backgroundImage: `url(${item.pic})` }}></div>
               <div className="p-2 sm:p-4">
                 <p className="truncate">{item.name}</p>
-                <p className="text-xs md:text-sm text-gray-500 font-din">{moment(item.date).format('YYYY-MM-DD')}</p>
+                <div className="flex items-center justify-between mt-1">
+                  <div>
+                    {
+                      item.keywords.map((item: any, index: number) => {
+                        return (
+                          <span key={index} className="mr-1 bg-gray-500 px-2 rounded-full text-white text-sm font-din">{item}</span>
+                        )
+                      })
+                    }
+                  </div>
+                  <p className="text-xs md:text-sm text-gray-500 font-din">{moment(item.date).format('YYYY-MM-DD')}</p>
+                </div>
               </div>
             </div>
           </Link>
