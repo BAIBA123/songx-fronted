@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%; width: 100%;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="height: 100%; width: 100%;">
+  <div className="h-full w-full" style="height: 100px; width: 100px;">
+    <div class="loading absolute top-1/2 left-1/2 transform translate-x-1/2 translate-y-1/2">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</body>
+<style>
+  .loading{
+  width: 80px;
+  height: 40px;
+  margin: 0 auto;
+  margin-top:100px;
+}
+.loading span{
+  display: inline-block;
+  width: 8px;
+  height: 100%;
+  margin-right: 3px;
+  border-radius: 4px;
+  background: #cbd5e0;
+  animation: load 1s ease infinite;
+}
+@keyframes load{
+  0%,100%{
+      height: 40px;
+      background: #cbd5e0;
+  }
+  50%{
+      height: 60px;
+      margin-top: -20px;
+      background: #cbd5e0;
+  }
+}
+.loading span:nth-child(2){
+  animation-delay:0.13s;
+}
+.loading span:nth-child(3){
+  animation-delay:0.26s;
+}
+.loading span:nth-child(4){
+  animation-delay:0.39s;
+}
+.loading span:nth-child(5){
+  animation-delay:0.52s;
+}
+</style>
+</html>
