@@ -5,7 +5,17 @@ export default (loader: any) => {
   return Loadable({
     loader,
     loading () {
-      return <div>正在加载</div>
+      return (
+        <div className="h-full w-full">
+          <div className="loading absolute top-1/2 left-1/2 transform translate-x-1/2 translate-y-1/2">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      )
     }
   })
 }
