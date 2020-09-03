@@ -11,7 +11,7 @@ export default function Layout (props: LayoutProps) {
   const { children } = props
 
   return (
-    <div>
+    <div className="h-full">
       <Header />
       <div id="anchor"></div>
       <div className="my-12">

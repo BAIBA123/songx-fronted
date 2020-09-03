@@ -256,8 +256,6 @@
 .loading{
   width: 80px;
   height: 40px;
-  margin: 0 auto;
-  margin-top:100px;
 }
 .loading span{
   display: inline-block;

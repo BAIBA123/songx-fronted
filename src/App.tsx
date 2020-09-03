@@ -11,7 +11,7 @@ import ScrollToTop from './components/ScrollTop'
 // import NotFound from './pages/others/NotFound'
 import loadable from './utils/loadable/Index'
 const Index = loadable(() => import('./pages/index/Index'))
-const Read = loadable(() => import('./pages/post/Index'))
+const Read = loadable(() => import('./pages/read/Index'))
 const Store = loadable(() => import('./pages/store/Index'))
 const PostList = loadable(() => import('./pages/post/Index'))
 const PostDetail = loadable(() => import('./pages/post/Detail'))

@@ -36,9 +36,10 @@ export default function Deatil (props: any) {
   }
 
   const contentClick = (e: any) => {
-    setVisible(true)
-    e.target.tagName === 'IMG' && setImages([{ src: e.target.src, alt: '预览' }])
-    console.log(images)
+    if (e.target.tagName === 'IMG') {
+      setVisible(true)
+      setImages([{ src: e.target.src, alt: '预览' }])
+    }
   }
 
   useEffect(() => {
