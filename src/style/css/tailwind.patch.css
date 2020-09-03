@@ -81,6 +81,11 @@ html {
 .a-content img {
   display: block;
   margin: 0 auto;
+  cursor: pointer;
+}
+
+.a-content img:hover {
+  opacity: .8;
 }
 
 .subtitle-li {
@@ -184,3 +189,4 @@ a:hover {
 .text-bg {
   background: linear-gradient(0deg,rgba(0,0,0,.83),rgba(0,0,0,0));
 }
+

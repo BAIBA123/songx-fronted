@@ -6,10 +6,13 @@ import { Link } from 'react-router-dom'
 import DetailSkele from './skeleton/Detail'
 import Comment from './components/detail/Comment'
 import SubTitle from './components/detail/SubTitle'
+import Viewer from 'react-viewer'
 
 export default function Deatil (props: any) {
   const [next, setNext] = useState({ _id: '', name: '' })
   const [before, setBefore] = useState({ _id: '', name: '' })
+  const [images, setImages] = useState([{ src: '', alt: '' }])
+  const [visible, setVisible] = useState(false) // viewer显示、隐藏
   const [loading, setLoading] = useState(false)
   const [article, setArticle] = useState({
     _id: '',
@@ -30,6 +33,12 @@ export default function Deatil (props: any) {
     setNext(res.next[0])
     setBefore(res.before[0])
     setLoading(false)
+  }
+
+  const contentClick = (e: any) => {
+    setVisible(true)
+    e.target.tagName === 'IMG' && setImages([{ src: e.target.src, alt: '预览' }])
+    console.log(images)
   }
 
   useEffect(() => {
@@ -80,7 +89,7 @@ export default function Deatil (props: any) {
         </div>
 
         <div className="a-content mb-20">
-          <div dangerouslySetInnerHTML={{ __html: article.content }}></div>
+          <div dangerouslySetInnerHTML={{ __html: article.content }} onClick={() => contentClick(event)}></div>
         </div>
 
         <p className="text-center text-gray-200 font-medium text-3xl mb-20">
@@ -115,6 +124,8 @@ export default function Deatil (props: any) {
       <div className="right hidden xl:block w-300px">
         <SubTitle></SubTitle>
       </div>
+
+      <Viewer visible={visible} noFooter={true} defaultScale={1.5} onClose={() => setVisible(false)} onMaskClick={() => setVisible(false)} images={images} />
     </div>
   )
 
