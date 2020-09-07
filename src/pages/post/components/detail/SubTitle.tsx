@@ -23,8 +23,8 @@ export default function SubTitle () {
   useEffect(() => {
     setTimeout(() => {
       init()
-    }, 500)
-  }, [])
+    }, 200)
+  }, [window.location.pathname])
 
   useEffect(() => {
     window.addEventListener('scroll', scrollFn)

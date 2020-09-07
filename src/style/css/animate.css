@@ -240,7 +240,7 @@
 }
 
 .light-move:hover {
-  background: linear-gradient(-70deg,#cbd5e0 25%,#fff 37%,#cbd5e0 63%);
+  background: linear-gradient(-70deg, #cbd5e0 25%, #fff 37%, #cbd5e0 63%);
   background-size: 400%;
   background-position: 100% 0%;
   animation: gradient 1s linear forwards;
@@ -252,13 +252,11 @@
   }
 }
 
-
-.loading{
+.loading {
   width: 80px;
   height: 40px;
-  background-color: #fff;
 }
-.loading span{
+.loading span {
   display: inline-block;
   width: 8px;
   height: 100%;
@@ -267,26 +265,27 @@
   background: #cbd5e0;
   animation: load 1s ease infinite;
 }
-@keyframes load{
-  0%,100%{
-      height: 40px;
-      background: #cbd5e0;
+@keyframes load {
+  0%,
+  100% {
+    height: 40px;
+    background: #cbd5e0;
   }
-  50%{
-      height: 60px;
-      margin-top: -20px;
-      background: #cbd5e0;
+  50% {
+    height: 60px;
+    margin-top: -20px;
+    background: #cbd5e0;
   }
 }
-.loading span:nth-child(2){
-  animation-delay:0.13s;
+.loading span:nth-child(2) {
+  animation-delay: 0.13s;
 }
-.loading span:nth-child(3){
-  animation-delay:0.26s;
+.loading span:nth-child(3) {
+  animation-delay: 0.26s;
 }
-.loading span:nth-child(4){
-  animation-delay:0.39s;
+.loading span:nth-child(4) {
+  animation-delay: 0.39s;
 }
-.loading span:nth-child(5){
-  animation-delay:0.52s;
+.loading span:nth-child(5) {
+  animation-delay: 0.52s;
 }
