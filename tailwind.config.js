@@ -52,14 +52,13 @@ module.exports = {
   },
   theme: {
     extend: {
-      maxWidth: Object.assign({ '1200px': '1200px', '800px': '800px' }, base, extra, percent),
-      width: Object.assign({ '300px': '300px', '800px': '800px' }, base, extra, percent),
-      height: Object.assign({}, base, extra, percent),
+      inset: Object.assign(percent),
+      lineHeight: Object.assign(base),
       margin: Object.assign({ '600px': '600px' }),
-      inset: Object.assign({}, percent),
-      rounded: Object.assign({}),
-      lineHeight: Object.assign({}, base),
-      backgroundSize: Object.assign({}, { '100%': '100%', '120%': '120%' })
+      height: Object.assign(base, extra, percent),
+      backgroundSize: Object.assign({ '100%': '100%', '120%': '120%' }),
+      width: Object.assign({ '300px': '300px', '800px': '800px' }, base, extra, percent),
+      maxWidth: Object.assign({ '1200px': '1200px', '800px': '800px' }, base, extra, percent)
     }
   },
   variants: {},

@@ -3,15 +3,10 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 
 import Layout from './components/layout/Index'
 import ScrollToTop from './components/ScrollTop'
-// import Index from './pages/index/Index'
-// import Read from './pages/read/Index'
-// import Store from './pages/store/Index'
-// import PostList from './pages/post/Index'
-// import PostDetail from './pages/post/Detail'
-// import NotFound from './pages/others/NotFound'
+
 import loadable from './utils/loadable/Index'
-const Index = loadable(() => import('./pages/index/Index'))
 const Read = loadable(() => import('./pages/read/Index'))
+const Index = loadable(() => import('./pages/index/Index'))
 const Store = loadable(() => import('./pages/store/Index'))
 const PostList = loadable(() => import('./pages/post/Index'))
 const PostDetail = loadable(() => import('./pages/post/Detail'))

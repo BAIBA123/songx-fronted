@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 
 import moment from 'moment'
+import Viewer from 'react-viewer'
 import http from '../../utils/http'
 import { Link } from 'react-router-dom'
 import DetailSkele from './skeleton/Detail'
 import Comment from './components/detail/Comment'
 import SubTitle from './components/detail/SubTitle'
-import Viewer from 'react-viewer'
 
 export default function Deatil (props: any) {
   const [next, setNext] = useState({ _id: '', name: '' })
