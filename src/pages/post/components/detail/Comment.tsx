@@ -90,7 +90,7 @@ export default function Comment (props: CommentProps) {
 
   useEffect(() => {
     getComments()
-  }, [])
+  }, [window.location.pathname])
 
   const html = emojis.map((item) => {
     return (
