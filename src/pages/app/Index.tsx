@@ -44,7 +44,7 @@ export default function Index () {
     <div className="py-5 px-4 md:px-8 max-w-1200px mx-auto">
       {/* {loading ? skeleton : html} */}
       {html}
-      <AppBox title={name} link={link} visiable={visiable} callback={toggleFn} />
+      <AppBox name={name} link={link} visiable={visiable} callback={toggleFn} />
     </div>
   )
 }
