@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="file" id="input">
+
+  
+</body>
+<script>
+  class SplitImage {
+  constructor (options) {
+    this.options = {
+      col: 3,
+      row: 3,
+      inputEle: ''
+    }
+    this.options = Object.assign({}, this.options, options)
+    if (!this.options.inputEle) {
+      throw new Error('Options.inputEle is invalid! Please check!')
+    }
+    this.input = null
+    this.canvas = null
+    this.ctx = null
+    this.img = null
+    this.init()
+  }
+  init () {
+    this.input = document.querySelectorAll(this.options.inputEle)[0]
+    this.input.onchange = this.fileChange.bind(this)
+    this.createCanvas()
+  }
+  async fileChange () {
+    let file = this.input.files[0]
+    try {
+      let base64 = await this.fileReader(file)
+      try {
+        await this.createImg(base64)
+        this.splitImg()
+      } catch (e) {
+        console.log(e)
+      }
+    } catch (e) {
+      console.log(e)
+    }
+  }
+  fileReader (file) { // 读取文件base64
+    return new Promise((resolve, reject) => {
+      const reader  = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = (e) => {
+        const result = e.target.result
+        resolve(result)
+      }
+      reader.onerror = (e) => {
+        reject(e)
+      }
+    })
+  }
+  createImg (base64) { // 加载图片
+    return new Promise((resolve, reject) => {
+      const img = new Image()
+      img.onload = (e) => {
+        this.img = img
+        resolve()
+      }
+      img.onerror = (e) => {
+        console.log(e)
+        reject(e)
+      }
+      img.src = base64
+    })
+  }
+  createCanvas () { // 创建canvas
+    this.canvas = document.createElement('canvas')
+    this.ctx = this.canvas.getContext('2d')
+  }
+  drawImg (options = {}) { // 绘制图片
+    this.canvas.width = options.width
+    this.canvas.height = options.height
+    this.ctx.drawImage(this.img, options.x, options.y, options.width, options.height, 0, 0, options.width, options.height)
+    const base64 = this.canvas.toDataURL()
+    let img = document.createElement('img')
+    img.src = base64
+    img.style.border = '5px solid red'
+    img.style.marginBottom = '-5px'
+    document.body.appendChild(img)
+  }
+  splitImg () { // 切割图片
+    let list = []
+    for (let y = 0; y < this.options.row; y++) {
+      for (let x = 0; x < this.options.col; x++) {
+        let simpleWidth = parseInt(this.img.width / this.options.col)
+        let simpleHeight = parseInt(this.img.height / this.options.row)
+        list.push({
+          x: x * simpleWidth,
+          y: y * simpleHeight,
+          width: simpleWidth,
+          height: simpleHeight
+        })
+      }
+    }
+    list.forEach(item => {
+      this.drawImg(item)
+    })
+  }
+}
+let splitImage = new SplitImage({
+  col: 2, // 切割图片的列数
+  row: 3, // 切割图片的行数
+  inputEle: '#input' // 标签选择器
+})
+</script>
+</html>

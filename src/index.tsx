@@ -9,6 +9,7 @@ import './style/icons/iconfont.css'
 import './style/icons/icon2/iconfont.css'
 import './style/icons/icon3/iconfont.css'
 import './style/css/tailwind.patch.css'
+import './style/css/appBox.css'
 
 ReactDOM.render(<App />, document.getElementById('root'))
 

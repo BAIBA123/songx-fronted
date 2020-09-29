@@ -10,6 +10,7 @@ const Index = loadable(() => import('./pages/index/Index'))
 const Store = loadable(() => import('./pages/store/Index'))
 const PostList = loadable(() => import('./pages/post/Index'))
 const PostDetail = loadable(() => import('./pages/post/Detail'))
+const Apps = loadable(() => import('./pages/app/Index'))
 const NotFound = loadable(() => import('./pages/others/NotFound'))
 
 function App () {
@@ -23,6 +24,7 @@ function App () {
             <Route exact path="/read" component={Read}></Route>
             <Route exact path="/store" component={Store}></Route>
             <Route exact path="/post/:id" component={PostDetail}></Route>
+            <Route exact path="/app" component={Apps}></Route>
             <Redirect exact from="/" to="/home" ></Redirect>
             <Route component={NotFound} />
           </Switch>

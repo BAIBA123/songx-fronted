@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+    <title>图片粉碎机</title>
+  </head>
+  <body>
+    <div class="main">
+      <h2 class="title">图片粉碎机</h2>
+      <!-- 左侧配置 start -->
+      <div class="container">
+        <div class="left">
+          <h3 class="left-title">配置</h3>
+          <div class="input-area">
+            <input class="row" type="number" value="3" /><label>行</label>
+            <input class="col" type="number" value="3" /><label>列</label>
+          </div>
+          <button id="view">预览</button>
+          <button id="split">粉碎</button>
+        </div>
+        <!-- 左侧配置 end -->
+
+        <!-- 右侧显示 start -->
+        <div class="right">
+          <div class="tab-box">
+            <span class="tab active">上传</span>
+            <span class="tab">碎片</span>
+          </div>
+          <div class="input-box">
+            <span class="tip">点击上传文件到此处</span>
+            <input type="file" id="file" />
+          </div>
+          <div id="showBox"></div>
+        </div>
+        <!-- 右侧显示 end -->
+      </div>
+    </div>
+    
+  </body>
+</html>
